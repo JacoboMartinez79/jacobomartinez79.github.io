@@ -1,0 +1,123 @@
+body {
+    background-color: #88888888;
+    color: #AA6C39;
+    font-weight: bold;
+}
+
+.main {
+    margin: 0vw 2vw 2vw 2vw;
+    padding: 4vh 5vw;
+    border: solid #AA6C39 2px;
+}
+
+.header {
+    padding: 2vh 5vw;
+    display: grid;
+    grid-template-areas: 'title buttons';
+    align-items: center;
+    grid-template-columns: 40% 60%;
+    color: #AA6C39;
+}
+
+.header-title {
+    grid-area: title;
+    font-size: 3vw;
+    display: flex;
+}
+
+    .header-title img {
+        width: 10%;
+        height: auto;
+        justify-self: right;
+    }
+
+    .header-title a {
+        padding-left: 2.5vw;
+        color: #AA6C39;
+        justify-self: center;
+        text-decoration: none;
+        transform: scale(1);
+        transition: linear 0.1s;
+    }
+
+        .header-title a:hover {
+            text-decoration: none;
+            transform: scale(1.1);
+            transition: linear 0.1s;
+        }
+
+
+.header-buttons {
+    grid-area: buttons;
+    display: flex;
+    justify-self: end;
+}
+
+.header-button {
+    text-align: center;
+    font-size: 1.5vw;
+    color: #AA6C39;
+    padding: 2vh;
+    text-decoration: none;
+}
+
+    .header-button a {
+        color: #AA6C39;
+        border: solid #808080 2px;
+        padding: 1vw;
+        text-decoration: none;
+        display: inline-block;
+        transform: scale(1);
+        transition: linear 0.1s;
+    }
+
+        .header-button a:hover {
+            color: #AA6C39;
+            text-decoration: none;
+            transform: scale(1.1);
+            transition: linear 0.1s;
+        }
+
+
+.project-section {
+    padding: 3vh 0vh;
+    display: grid;
+    grid-template-areas: 'title media' 'summary media';
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 5vh auto;
+    grid-column-gap: 4vw;
+    color: #AA6C39;
+}
+
+.project-title {
+    font-size: 2vw;
+    grid-area: title;
+}
+
+    .project-title a, a:visited, a:hover, a:active {
+        text-decoration: underline;
+        color: #AA6C39;
+    }
+
+.project-media {
+    grid-area: media;
+}
+
+    .project-media img {
+        width: 90%;
+        height: auto;
+    }
+
+.project-summary {
+    padding-top: 1vh;
+    font-size: 1.25vw;
+    grid-area: summary;
+    width: 80%;
+}
+
+.resume {
+    text-align: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
