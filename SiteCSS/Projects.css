@@ -37,7 +37,6 @@
 
 .contribution-summary {
     grid-area: csummary;
-
 }
 
 .additional-video {
@@ -50,7 +49,7 @@
         height: 50vh;
     }
 
-    .addition-download {
-        padding-top: 5vh;
-        text-align: left;
-    }
+.addition-download {
+    padding-top: 5vh;
+    text-align: left;
+}
