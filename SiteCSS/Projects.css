@@ -1,7 +1,7 @@
-/*.title {
+.title {
     padding-top: 3vh;
     color: #AA6C39;
-    font-size: 2vw;
+    font-size: 4vw;
 }
 
 .project-type {
@@ -22,7 +22,7 @@
 
 .contribution-title {
     grid-area: ctitle;
-    font-size: 2vh;
+    font-size: 4vh;
 }
 
 .contribution-media {
@@ -37,64 +37,6 @@
 
 .contribution-summary {
     grid-area: csummary;
-}
-
-.additional-video {
-    padding-top: 5vh;
-    text-align: center;
-}
-
-    .additional-video iframe {
-        width: 50vw;
-        height: 50vh;
-    }
-
-.addition-download {
-    padding-top: 5vh;
-    text-align: left;
-}
-*/
-.title {
-    padding-top: 3vh;
-    color: #AA6C39;
-    font-size: 28px; /* Adjust the font size */
-}
-
-.project-type {
-    font-size: 24px; /* Adjust the font size */
-}
-
-.contributions {
-    padding-top: 1vh;
-    font-size: 24px; /* Adjust the font size */
-}
-
-.contribution-left {
-    padding-top: 2vh;
-    display: grid;
-    grid-template-areas: 'ctitle cmedia' 'csummary cmedia';
-    grid-template-columns: 60% 40%;
-    grid-template-rows: 5vh auto;
-}
-
-.contribution-title {
-    grid-area: ctitle;
-    font-size: 22px; /* Adjust the font size */
-}
-
-.contribution-media {
-    grid-area: cmedia;
-    text-align: center;
-}
-
-    .contribution-media img {
-        width: 90%;
-        height: auto;
-    }
-
-.contribution-summary {
-    grid-area: csummary;
-    font-size: 20px; /* Adjust the font size */
 }
 
 .additional-video {

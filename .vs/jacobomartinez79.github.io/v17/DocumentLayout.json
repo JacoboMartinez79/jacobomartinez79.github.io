@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\AI.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SitePages\\AI.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SiteCSS\\Projects.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SiteCSS\\Projects.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\Homepage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SitePages\\Homepage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\WizardsDay.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SitePages\\WizardsDay.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\AI.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SitePages\\AI.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\Homepage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SitePages\\Homepage.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\wxProjects.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 305,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,15 +62,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Projects.css",
               "DocumentMoniker": "C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SiteCSS\\Projects.css",
               "RelativeDocumentMoniker": "SiteCSS\\Projects.css",
               "ToolTip": "C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SiteCSS\\Projects.css",
               "RelativeToolTip": "SiteCSS\\Projects.css",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAowHEAAAAAAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAowCEAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-08-03T23:55:01.338Z"
+              "WhenOpened": "2024-08-03T23:55:01.338Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -86,15 +87,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "WizardsDay.html",
               "DocumentMoniker": "C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\WizardsDay.html",
               "RelativeDocumentMoniker": "SitePages\\WizardsDay.html",
               "ToolTip": "C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\WizardsDay.html",
               "RelativeToolTip": "SitePages\\WizardsDay.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAPAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABcAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-08-03T23:42:22.267Z"
+              "WhenOpened": "2024-08-03T23:42:22.267Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -110,16 +112,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AI.html",
               "DocumentMoniker": "C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\AI.html",
               "RelativeDocumentMoniker": "SitePages\\AI.html",
               "ToolTip": "C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\AI.html",
               "RelativeToolTip": "SitePages\\AI.html",
-              "ViewState": "AQIAADMAAAAAAAAAAAAswFgAAAAHAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAswFgAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-08-03T22:45:49.111Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-03T22:45:49.111Z"
             },
             {
               "$type": "Document",
@@ -147,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Homepage.html",
               "DocumentMoniker": "C:\\Users\\jacma\\Desktop\\GithubRepos\\jacobomartinez79.github.io\\SitePages\\Homepage.html",
               "RelativeDocumentMoniker": "SitePages\\Homepage.html",
