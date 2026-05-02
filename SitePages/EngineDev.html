@@ -1,40 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Engine Development Projects — Jacobo Martinez">
+    <meta name="author" content="Jacobo Martinez">
     <link rel="stylesheet" href="../SiteCSS/Homepage.css" />
     <link rel="stylesheet" href="../SiteCSS/Projects.css" />
-    <link rel="icon" type="image/svg" href="../SiteImages/favicon.png" />
-    <title>Jacobo M.</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Portfolio">
-    <meta name="author" content="Jacobo Martinez">
+    <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <title>Engine Development — Jacobo Martinez</title>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="header-title">
-            <img src="../SiteImages/favicon.png" />
+            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
             <a href="Homepage.html">Jacobo Martinez</a>
         </div>
-        <div class="header-buttons">
-            <div class="header-button"> <a href="Homepage.html">Homepage </a> </div>
-            <div class="header-button"> <a href="Homepage.html#Projects">Projects </a> </div>
-            <div class="header-button"> <a href="Homepage.html#AboutMe">About Me </a> </div>
-        </div>
-    </div>
-    <div class="main">
-        <div class="title">
-            Engine Development Projects
-        </div>
-        <div class="project-type">
-            C++ | DirectX 11
-        </div>
-        <div class="contributions">
-            List of Contributions:
-        </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+        <nav class="header-buttons">
+            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
+            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
+            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="title">Engine Development Projects</div>
+        <div class="project-type">C++ | DirectX 11</div>
+        <div class="contributions">List of Contributions:</div>
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/EngineDev_CoverImage.png" />
+                <img src="../SiteImages/EngineDev_CoverImage.png" alt="Particle system demo" />
             </div>
             <div class="contribution-title">
                 Particle System with Sorted and Unsorted Pools
@@ -42,22 +37,16 @@
             <div class="contribution-summary">
                 Developed a particle system using sorted and unsorted pools, including:
                 <ul>
-                    <li>
-                        Implemented a free list allocator for managing particle memory efficiently.
-                    </li>
-                    <li>
-                        Created a sorted pool for active particles and an unsorted pool for free particles.
-                    </li>
-                    <li>
-                        Designed an emitter system to spawn and update particles with gravity and color interpolation.
-                    </li>
+                    <li>Implemented a free list allocator for managing particle memory efficiently.</li>
+                    <li>Created a sorted pool for active particles and an unsorted pool for free particles.</li>
+                    <li>Designed an emitter system to spawn and update particles with gravity and color interpolation.</li>
                 </ul>
             </div>
         </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/.png" />
+                <img src="../SiteImages/EngineDev_CoverImage.png" alt="Matrix transformations and 3D rendering" />
             </div>
             <div class="contribution-title">
                 Matrix Transformations and Rendering
@@ -65,25 +54,19 @@
             <div class="contribution-summary">
                 Developed and integrated matrix transformations for rendering, including:
                 <ul>
-                    <li>
-                        Implemented functions for matrix multiplication, inversion, and other transformations.
-                    </li>
-                    <li>
-                        Utilized DirectX 11 for rendering 3D objects with dynamic camera controls.
-                    </li>
-                    <li>
-                        Created a grid rendering system to visualize transformations and camera movements.
-                    </li>
+                    <li>Implemented functions for matrix multiplication, inversion, and other transformations.</li>
+                    <li>Utilized DirectX 11 for rendering 3D objects with dynamic camera controls.</li>
+                    <li>Created a grid rendering system to visualize transformations and camera movements.</li>
                 </ul>
             </div>
         </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+
         <div class="additional-video">
-            <iframe src="https://www.youtube.com/embed/NhvbFyPPL8Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/NhvbFyPPL8Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Engine Development Demo 1"></iframe>
         </div>
         <div class="additional-video">
-            <iframe src="https://www.youtube.com/embed/PwCFwrBOros" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/PwCFwrBOros" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Engine Development Demo 2"></iframe>
         </div>
-    </div>
+    </main>
 </body>
 </html>

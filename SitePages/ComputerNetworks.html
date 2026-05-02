@@ -1,40 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Computer Networks Project — Jacobo Martinez">
+    <meta name="author" content="Jacobo Martinez">
     <link rel="stylesheet" href="../SiteCSS/Homepage.css" />
     <link rel="stylesheet" href="../SiteCSS/Projects.css" />
-    <link rel="icon" type="image/svg" href="../SiteImages/favicon.png" />
-    <title>Jacobo M.</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Portfolio">
-    <meta name="author" content="Jacobo Martinez">
+    <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <title>Computer Networks — Jacobo Martinez</title>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="header-title">
-            <img src="../SiteImages/favicon.png" />
+            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
             <a href="Homepage.html">Jacobo Martinez</a>
         </div>
-        <div class="header-buttons">
-            <div class="header-button"> <a href="Homepage.html">Homepage </a> </div>
-            <div class="header-button"> <a href="Homepage.html#Projects">Projects </a> </div>
-            <div class="header-button"> <a href="Homepage.html#AboutMe">About Me </a> </div>
-        </div>
-    </div>
-    <div class="main">
-        <div class="title">
-            Computer Networks Server/Client Project
-        </div>
-        <div class="project-type">
-            C++ | WinSock API
-        </div>
-        <div class="contributions">
-            List of Contributions:
-        </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+        <nav class="header-buttons">
+            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
+            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
+            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="title">Computer Networks Server/Client Project</div>
+        <div class="project-type">C++ | WinSock API</div>
+        <div class="contributions">List of Contributions:</div>
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/ComputerNetworks_CoverImage.png" />
+                <img src="../SiteImages/ComputerNetworks_CoverImage.png" alt="Server implementation diagram" />
             </div>
             <div class="contribution-title">
                 Server Implementation
@@ -42,22 +37,16 @@
             <div class="contribution-summary">
                 Developed and implemented the server-side application using C++ and the WinSock API, which included:
                 <ul>
-                    <li>
-                        Setting up the server to handle multiple client connections simultaneously, The Limit is currently 5.
-                    </li>
-                    <li>
-                        Implementing data serialization and deserialization for efficient network communication.The data is saved to a Text file.
-                    </li>
-                    <li>
-                        Ensuring robust error handling and connection management.
-                    </li>
+                    <li>Setting up the server to handle multiple client connections simultaneously — the current limit is 5.</li>
+                    <li>Implementing data serialization and deserialization for efficient network communication. Data is saved to a text file.</li>
+                    <li>Ensuring robust error handling and connection management.</li>
                 </ul>
             </div>
         </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/.png" />
+                <img src="../SiteImages/ComputerNetworks_CoverImage.png" alt="Client application interface" />
             </div>
             <div class="contribution-title">
                 Client Application
@@ -65,18 +54,12 @@
             <div class="contribution-summary">
                 Created the client-side application with C++ and the WinSock API, focusing on:
                 <ul>
-                    <li>
-                        Developing a user-friendly interface for clients to connect to the server.
-                    </li>
-                    <li>
-                        Implementing features for sending and receiving messages in real-time.
-                    </li>
-                    <li>
-                        Ensuring the client application can handle unexpected server disconnections gracefully.
-                    </li>
+                    <li>Developing a user-friendly interface for clients to connect to the server.</li>
+                    <li>Implementing features for sending and receiving messages in real-time.</li>
+                    <li>Ensuring the client application handles unexpected server disconnections gracefully.</li>
                 </ul>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>

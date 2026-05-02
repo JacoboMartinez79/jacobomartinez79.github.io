@@ -1,125 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css" />
-    <link rel="icon" type="image/svg" href="../SiteImages/favicon.png" />
-    <title>Jacobo M.</title>
     <meta charset="utf-8">
-    <meta name="description" content="Portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jacobo Martinez — Game Developer &amp; Software Engineer portfolio">
     <meta name="author" content="Jacobo Martinez">
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css" />
+    <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <title>Jacobo Martinez</title>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="header-title">
-            <img src="../SiteImages/favicon.png" />
+            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
             <a href="Homepage.html">Jacobo Martinez</a>
         </div>
-        <div class="header-buttons">
-            <div class="header-button"> <a href="Homepage.html">Homepage </a> </div>
-            <div class="header-button"> <a href="Homepage.html#Projects">Projects </a> </div>
-            <div class="header-button"> <a href="Homepage.html#AboutMe">About Me </a> </div>
-        </div>
-    </div>
-    <div class="main">
+        <nav class="header-buttons">
+            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
+            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
+            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="hero">
+            <div class="hero-headline">Game Developer &amp; Software Engineer</div>
+            <div class="hero-subline">
+                Building interactive experiences — from VR simulators and survival games to graphics engines and AI systems.
+                Specializing in C++, C#, Unity, and DirectX 11.
+            </div>
+            <div class="hero-links">
+                <a href="Homepage.html#Projects">View Projects</a>
+                <a href="Homepage.html#AboutMe">About Me</a>
+            </div>
+        </section>
+
         <section id="Projects">
+            <div class="section-label">Projects</div>
             <div class="projects">
                 <!--Big Greasy-->
                 <div class="project-section">
                     <div class="project-title">
-                        <a href="./BigGreasy.html"> Big Greasy </a>
+                        <a href="./BigGreasy.html">Big Greasy</a>
                     </div>
                     <div class="project-media">
-                        <img src="../SiteImages/BigGreasy_CoverImage.png" />
+                        <img src="../SiteImages/BigGreasy_CoverImage.png" alt="Big Greasy game screenshot" />
                     </div>
                     <div class="project-summary">
-                        <p> Fast food simulator. Gameplay is your day to day job at Big Grease working the graveyard shift. Your ultimate goal is to make rent for the week. Simulate the exciting life of a fast food employment and flexing your time management skills. how ever beware the supernatural events that occur during your monotonous job. </p>
-                        <a href="https://blacksandsstudios.itch.io/big-grease"> Itch.io Page</a>
+                        Fast food simulator. Gameplay is your day-to-day job at Big Grease working the graveyard shift. Your ultimate goal is to make rent for the week. Simulate the exciting life of fast food employment while flexing your time management skills. However, beware the supernatural events that occur during your monotonous job.
+                        <br><br>
+                        <a href="https://blacksandsstudios.itch.io/big-grease">Itch.io Page</a>
                     </div>
                 </div>
                 <!--Wizards Day-->
                 <div class="project-section">
                     <div class="project-title">
-                        <a href="./WizardsDay.html"> Wizards Day</a>
+                        <a href="./WizardsDay.html">Wizards Day</a>
                     </div>
                     <div class="project-media">
-                        <img src="../SiteImages/WizardsDay_CoverImage.png" />
+                        <img src="../SiteImages/WizardsDay_CoverImage.png" alt="Wizards Day game screenshot" />
                     </div>
                     <div class="project-summary">
-                        Wizards Day" is a top-down survival game where players need to survive for five rounds. Players collect experience points to increase the damage of their fireball attack against enemies.
+                        "Wizards Day" is a top-down survival game where players need to survive for five rounds. Players collect experience points to increase the damage of their fireball attack against enemies.
                     </div>
                 </div>
                 <!--AI-->
                 <div class="project-section">
                     <div class="project-title">
-                        <a href="./AI.html"> Artificial Intelligence </a>
+                        <a href="./AI.html">Artificial Intelligence</a>
                     </div>
                     <div class="project-media">
-                        <img src="../SiteImages/AI_CoverImage.png" />
+                        <img src="../SiteImages/AI_CoverImage.png" alt="AI path planning visualization" />
                     </div>
                     <div class="project-summary">
-                        Favorite AI Project: AI Path Planning Implementation
-                        For one of the AI projects, I implemented a comprehensive path planning system. I started by constructing a SearchGraph from tile data to represent the terrain. I then managed hexagonal tile adjacency within a 2D array to correctly identify neighboring tiles. For pathfinding, I implemented several algorithms sequentially: Breadth First Search (BFS) for basic pathfinding, Greedy Search using a heuristic approach, Uniform Cost Search for cost-effective paths, and finally, the A* algorithm for optimal and efficient pathfinding.
+                        Implemented a comprehensive path planning system, including A* for optimal pathfinding and flocking algorithms for realistic group behaviors. Built a SearchGraph from tile data and managed hexagonal tile adjacency within a 2D array, with implementations ranging from BFS to A*.
                     </div>
                 </div>
                 <!--Engine Development-->
                 <div class="project-section">
                     <div class="project-title">
-                        <a href="./EngineDev.html"> Engine Development </a>
+                        <a href="./EngineDev.html">Engine Development</a>
                     </div>
                     <div class="project-media">
-                        <img src="../SiteImages/EngineDev_CoverImage.png" />
+                        <img src="../SiteImages/EngineDev_CoverImage.png" alt="Engine development particle system" />
                     </div>
                     <div class="project-summary">
-                        In the engine development project, I implemented a particle system using sorted and unsorted pools. Sorted pools managed active particles for efficient rendering and updates, minimizing processing time. Unsorted pools handled inactive particles, allowing for quick allocation and deallocation, reducing management overhead. This approach optimized performance, enabling the system to efficiently handle large numbers of particles and ensuring smooth, responsive visual effects.
+                        Implemented a particle system using sorted and unsorted pools. Sorted pools managed active particles for efficient rendering, while unsorted pools handled inactive particles for quick allocation and deallocation. This optimized performance for large numbers of particles with smooth, responsive visual effects.
                     </div>
                 </div>
                 <!--Graphics Projects-->
                 <div class="project-section">
                     <div class="project-title">
-                        <a href="./Graphics.html"> Graphics Projects </a>
+                        <a href="./Graphics.html">Graphics Projects</a>
                     </div>
                     <div class="project-media">
-                        <img src="../SiteImages/Graphics_CoverGIF.gif" />
+                        <img src="../SiteImages/Graphics_CoverGIF.gif" alt="Graphics project animation" />
                     </div>
                     <div class="project-summary">
-                        These Projects rangine from Creating Graphics from scratch making a mini linear algebra libaray that for the matrix math to draw stuff on the screen, following some algrorthims to draw lines, to working with the DX11 API and a hint of the Vulkan API.
+                        Projects ranging from creating graphics from scratch — including a mini linear algebra library for matrix math — to following algorithms to draw lines, working with the DirectX 11 API, and a touch of the Vulkan API.
                     </div>
                 </div>
                 <!--Computer Networks-->
                 <div class="project-section">
                     <div class="project-title">
-                        <a href="./ComputerNetworks.html"> Computer Networks </a>
+                        <a href="./ComputerNetworks.html">Computer Networks</a>
                     </div>
                     <div class="project-media">
-                        <img src="../SiteImages/ComputerNetworks_CoverImage.png" />
+                        <img src="../SiteImages/ComputerNetworks_CoverImage.png" alt="Computer networks server-client diagram" />
                     </div>
                     <div class="project-summary">
-                        I developed a server-client chat application using the WinSock API and multiplexing techniques. This application features robust communication between clients and the server. The WinSock API facilitated efficient network communication, enabling real-time chat functionality.
+                        Developed a server-client chat application using the WinSock API and multiplexing techniques. Features robust communication between clients and server, enabling real-time chat functionality with support for up to five simultaneous connections.
                     </div>
                 </div>
                 <!--wxWidgets Projects-->
                 <div class="project-section">
                     <div class="project-title">
-                        <a href="./wxProjects.html"> wxWidgets Projects </a>
+                        <a href="./wxProjects.html">wxWidgets Projects</a>
                     </div>
                     <div class="project-media">
-                        <img src="../SiteImages/wxWidgets_CoverGIF.gif" />
+                        <img src="../SiteImages/wxWidgets_CoverGIF.gif" alt="wxWidgets Game of Life simulation" />
                     </div>
                     <div class="project-summary">
-                        Learn more about the projects that I have used the mForm API for!
-                        Features Conways Game of Life (Cellular Automata).
+                        Desktop GUI applications built with Windows Forms and wxWidgets. Features Conway's Game of Life (cellular automata) implemented in C# and a wxWidgets calculator in C++ using the command pattern.
                     </div>
                 </div>
             </div>
         </section>
+
         <section id="AboutMe">
             <div class="about-me">
-
+                <h2>About Me</h2>
+                <div class="about-me-content">
+                    <p>
+                        Hi, I'm Jacobo Martinez — a game developer and software engineer with a focus on C++, C#, Unity, and graphics programming. I'm passionate about building interactive experiences, from VR capstone projects to low-level graphics engines.
+                    </p>
+                    <p>
+                        I enjoy working across the full stack of game development: engine architecture, AI systems, networking, UI design, and project management. I thrive in roles where I can contribute technically while also thinking about the player experience.
+                    </p>
+                    <div class="about-me-links">
+                        <a href="https://github.com/jacobomartinez79" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://www.linkedin.com/in/jacobomartinez79" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="resume-download">
+                <a href="../SiteImages/MartinezJacobo_Resume.svg" target="_blank">View Resume</a>
             </div>
             <div class="resume">
-                <img src="../SiteImages/MartinezJacobo_Resume.svg"/>
+                <img src="../SiteImages/MartinezJacobo_Resume.svg" alt="Jacobo Martinez resume" />
             </div>
         </section>
-    </div>
+    </main>
 </body>
 </html>

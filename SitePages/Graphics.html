@@ -1,40 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Computer Graphics Projects — Jacobo Martinez">
+    <meta name="author" content="Jacobo Martinez">
     <link rel="stylesheet" href="../SiteCSS/Homepage.css" />
     <link rel="stylesheet" href="../SiteCSS/Projects.css" />
-    <link rel="icon" type="image/svg" href="../SiteImages/favicon.png" />
-    <title>Jacobo M.</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Portfolio">
-    <meta name="author" content="Jacobo Martinez">
+    <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <title>Graphics Projects — Jacobo Martinez</title>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="header-title">
-            <img src="../SiteImages/favicon.png" />
+            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
             <a href="Homepage.html">Jacobo Martinez</a>
         </div>
-        <div class="header-buttons">
-            <div class="header-button"> <a href="Homepage.html">Homepage </a> </div>
-            <div class="header-button"> <a href="Homepage.html#Projects">Projects </a> </div>
-            <div class="header-button"> <a href="Homepage.html#AboutMe">About Me </a> </div>
-        </div>
-    </div>
-    <div class="main">
-        <div class="title">
-            Computer Graphics Projects
-        </div>
-        <div class="project-type">
-            C++ | Gateware | DirectX 11 | Vulkan
-        </div>
-        <div class="contributions">
-            List of Contributions:
-        </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+        <nav class="header-buttons">
+            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
+            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
+            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="title">Computer Graphics Projects</div>
+        <div class="project-type">C++ | Gateware | DirectX 11 | Vulkan</div>
+        <div class="contributions">List of Contributions:</div>
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/Graphics_CoverGIF.gif" alt="Graphics Project Cover GIF" />
+                <img src="../SiteImages/Graphics_CoverGIF.gif" alt="Sprite rendering and blitting demo" />
             </div>
             <div class="contribution-title">
                 Sprite Rendering and Blitting
@@ -42,22 +37,16 @@
             <div class="contribution-summary">
                 Developed a system for rendering and blitting sprites in C++, including:
                 <ul>
-                    <li>
-                        Implementing a function to convert 2D coordinates to a 1D array index for raster operations.
-                    </li>
-                    <li>
-                        Creating a color blending function to handle transparency and layering of sprites.
-                    </li>
-                    <li>
-                        Designing and optimizing a blitting function to render sprites efficiently on the screen.
-                    </li>
+                    <li>Implementing a function to convert 2D coordinates to a 1D array index for raster operations.</li>
+                    <li>Creating a color blending function to handle transparency and layering of sprites.</li>
+                    <li>Designing and optimizing a blitting function to render sprites efficiently on the screen.</li>
                 </ul>
             </div>
         </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/image.png" alt="Additional Graphics Image" />
+                <img src="../SiteImages/image.png" alt="Sprite animation and environment setup" />
             </div>
             <div class="contribution-title">
                 Environment Setup and Sprite Animation
@@ -65,22 +54,16 @@
             <div class="contribution-summary">
                 Created a dynamic environment and animated sprites, including:
                 <ul>
-                    <li>
-                        Setting up a tiled background by repeating and blitting a grass texture.
-                    </li>
-                    <li>
-                        Randomly placing tree sprites to create a natural-looking environment.
-                    </li>
-                    <li>
-                        Implementing an animation system to cycle through fire sprite frames, creating realistic fire effects.
-                    </li>
+                    <li>Setting up a tiled background by repeating and blitting a grass texture.</li>
+                    <li>Randomly placing tree sprites to create a natural-looking environment.</li>
+                    <li>Implementing an animation system to cycle through fire sprite frames, creating realistic fire effects.</li>
                 </ul>
             </div>
         </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/CubeProjectImage.png" alt="Cube Project Image" />
+                <img src="../SiteImages/CubeProjectImage.png" alt="3D cube rendering with DirectX 11" />
             </div>
             <div class="contribution-title">
                 DirectX 11 and Gateware: Cube Rendering with Camera Control
@@ -88,27 +71,18 @@
             <div class="contribution-summary">
                 Developed a 3D cube rendering project using DirectX 11 and Gateware, including:
                 <ul>
-                    <li>
-                        Implementing vertex and pixel shaders to render a 3D cube.
-                    </li>
-                    <li>
-                        Setting up a camera system to navigate around the 3D world.
-                    </li>
-                    <li>
-                        Using Gateware for window management and input handling.
-                    </li>
-                    <li>
-                        Creating a constant buffer to pass transformation matrices (world, view, projection) to the GPU.
-                    </li>
-                    <li>
-                        Implementing camera movement controls to allow the user to move the camera through the scene.
-                    </li>
+                    <li>Implementing vertex and pixel shaders to render a 3D cube.</li>
+                    <li>Setting up a camera system to navigate around the 3D world.</li>
+                    <li>Using Gateware for window management and input handling.</li>
+                    <li>Creating a constant buffer to pass transformation matrices (world, view, projection) to the GPU.</li>
+                    <li>Implementing camera movement controls to allow the user to move through the scene.</li>
                 </ul>
             </div>
         </div>
+
         <div class="additional-download">
-            <a href="https://drive.google.com/file/d/1Ak34GlEhF1JYF0-fMEBHbI6-Ir0Cb_08/view">Link to Google Drive Download.</a>
+            <a href="https://drive.google.com/file/d/1Ak34GlEhF1JYF0-fMEBHbI6-Ir0Cb_08/view" target="_blank" rel="noopener">Download from Google Drive</a>
         </div>
-    </div>
+    </main>
 </body>
 </html>

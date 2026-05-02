@@ -1,42 +1,69 @@
 .title {
     padding-top: 3vh;
-    color: #AA6C39;
-    font-size: 4vw;
+    color: #d4893a;
+    font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
 .project-type {
-    font-size: 1.5vw;
+    font-size: clamp(0.8rem, 1.5vw, 1.05rem);
+    opacity: 0.75;
+    margin-top: 0.5vh;
+    margin-bottom: 1.5vh;
+    font-weight: normal;
+    letter-spacing: 0.03em;
 }
 
 .contributions {
-    padding-top: 1vh;
+    padding: 1vh 0;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    border-bottom: solid #3d2e1f 2px;
+    margin-bottom: 0;
 }
 
 .contribution-left {
-    padding-top: 2vh;
+    padding: 2.5vh 0;
     display: grid;
     grid-template-areas: 'ctitle cmedia' 'csummary cmedia';
     grid-template-columns: 60% 40%;
-    grid-template-rows: 5vh auto;
+    grid-template-rows: auto auto;
+    column-gap: 3vw;
+    border-bottom: solid #3d2e1f 1px;
 }
 
 .contribution-title {
     grid-area: ctitle;
-    font-size: 4vh;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    padding-bottom: 1vh;
 }
 
 .contribution-media {
     grid-area: cmedia;
     text-align: center;
+    align-self: start;
 }
 
     .contribution-media img {
         width: 90%;
         height: auto;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto;
     }
 
 .contribution-summary {
     grid-area: csummary;
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+    font-weight: normal;
+    line-height: 1.7;
+}
+
+.contribution-summary ul {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.contribution-summary li {
+    margin-bottom: 0.5rem;
 }
 
 .additional-video {
@@ -45,11 +72,50 @@
 }
 
     .additional-video iframe {
-        width: 50vw;
-        height: 50vh;
+        width: min(50vw, 800px);
+        height: min(50vh, 450px);
+        border-radius: 4px;
     }
 
-.addition-download {
-    padding-top: 5vh;
+.additional-download {
+    padding-top: 3vh;
+    padding-bottom: 2vh;
     text-align: left;
+}
+
+.additional-download a {
+    color: #d4893a;
+    border: solid #3d2e1f 2px;
+    padding: 0.5rem 1.2rem;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.additional-download a:hover {
+    color: #f0a855;
+    border-color: #f0a855;
+}
+
+
+@media (max-width: 1023px) {
+
+    .contribution-left {
+        grid-template-areas: 'ctitle' 'csummary' 'cmedia';
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
+        column-gap: 0;
+    }
+
+    .contribution-title {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+
+    .contribution-summary {
+        font-size: clamp(0.85rem, 2.5vw, 1rem);
+    }
+
+    .additional-video iframe {
+        width: 90vw;
+        height: 50vw;
+    }
 }

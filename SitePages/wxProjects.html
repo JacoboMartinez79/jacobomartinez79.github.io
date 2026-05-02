@@ -1,63 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="wxWidgets and Windows Forms Projects — Jacobo Martinez">
+    <meta name="author" content="Jacobo Martinez">
     <link rel="stylesheet" href="../SiteCSS/Homepage.css" />
     <link rel="stylesheet" href="../SiteCSS/Projects.css" />
-    <link rel="icon" type="image/svg" href="../SiteImages/favicon.png" />
-    <title>Jacobo M.</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Portfolio">
-    <meta name="author" content="Jacobo Martinez">
+    <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <title>wxWidgets Projects — Jacobo Martinez</title>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="header-title">
-            <img src="../SiteImages/favicon.png" />
+            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
             <a href="Homepage.html">Jacobo Martinez</a>
         </div>
-        <div class="header-buttons">
-            <div class="header-button"> <a href="Homepage.html">Homepage </a> </div>
-            <div class="header-button"> <a href="Homepage.html#Projects">Projects </a> </div>
-            <div class="header-button"> <a href="Homepage.html#AboutMe">About Me </a> </div>
-        </div>
-    </div>
-    <div class="main">
-        <div class="title">
-           Windows Forms and wxWidgets Projects (Game of Life & Calculator)
-        </div>
-        <div class="project-type">
-            C# | WindowsForms API | C++ | wxWidgets API
-        </div>
-        <div class="contributions">
-            List of Contributions:
-        </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+        <nav class="header-buttons">
+            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
+            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
+            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="title">Windows Forms and wxWidgets Projects</div>
+        <div class="project-type">C# | Windows Forms API | C++ | wxWidgets API</div>
+        <div class="contributions">List of Contributions:</div>
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/wxWidgets_CoverGIF.gif" />
+                <img src="../SiteImages/wxWidgets_CoverGIF.gif" alt="Conway's Game of Life simulation" />
             </div>
             <div class="contribution-title">
-                Windows Form Game Of Life
+                Windows Forms: Game of Life
             </div>
             <div class="contribution-summary">
                 Generalist Programmer
                 <ul>
-                    <li>
-                        Programmed the logic of the simulation in C#.
-                    </li>
-                    <li>
-                        Implemented and managed the settings for the simulation.
-                    </li>
-                    <li>
-                        Developed the user interface, including the HUD and dynamic grid.
-                    </li>
+                    <li>Programmed the cellular automata logic of the simulation in C#.</li>
+                    <li>Implemented and managed the settings system for the simulation.</li>
+                    <li>Developed the user interface, including the HUD and dynamic grid.</li>
                 </ul>
             </div>
         </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/.png" />
+                <img src="../SiteImages/wxWidgets_CoverGIF.gif" alt="wxWidgets calculator application" />
             </div>
             <div class="contribution-title">
                 wxWidgets Calculator
@@ -65,22 +54,16 @@
             <div class="contribution-summary">
                 Developed a calculator application using wxWidgets in C++, including:
                 <ul>
-                    <li>
-                        Designed and implemented the user interface for the calculator.
-                    </li>
-                    <li>
-                        Programmed the core functionality for basic arithmetic operations using interfaces to handle commands.
-                    </li>
-                    <li>
-                        Addressed and resolved circular dependencies by carefully managing header includes and class dependencies.
-                    </li>
+                    <li>Designed and implemented the user interface for the calculator.</li>
+                    <li>Programmed core arithmetic functionality using the command pattern via interfaces.</li>
+                    <li>Resolved circular dependencies by carefully managing header includes and class dependencies.</li>
                 </ul>
             </div>
         </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+
         <div class="additional-video">
-            <iframe src="https://www.youtube.com/embed/osaT2mWBpXI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/osaT2mWBpXI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="wxWidgets Projects Demo"></iframe>
         </div>
-    </div>
+    </main>
 </body>
 </html>

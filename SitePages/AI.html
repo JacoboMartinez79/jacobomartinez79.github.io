@@ -1,40 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artificial Intelligence Projects — Jacobo Martinez">
+    <meta name="author" content="Jacobo Martinez">
     <link rel="stylesheet" href="../SiteCSS/Homepage.css" />
     <link rel="stylesheet" href="../SiteCSS/Projects.css" />
-    <link rel="icon" type="image/svg" href="../SiteImages/favicon.png" />
-    <title>Jacobo M.</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Portfolio">
-    <meta name="author" content="Jacobo Martinez">
+    <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <title>AI Projects — Jacobo Martinez</title>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="header-title">
-            <img src="../SiteImages/favicon.png" />
+            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
             <a href="Homepage.html">Jacobo Martinez</a>
         </div>
-        <div class="header-buttons">
-            <div class="header-button"> <a href="Homepage.html">Homepage </a> </div>
-            <div class="header-button"> <a href="Homepage.html#Projects">Projects </a> </div>
-            <div class="header-button"> <a href="Homepage.html#AboutMe">About Me </a> </div>
-        </div>
-    </div>
-    <div class="main">
-        <div class="title">
-            Artificial Intelligence Projects
-        </div>
-        <div class="project-type">
-            C# | C++
-        </div>
-        <div class="contributions">
-            List of Contributions:
-        </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+        <nav class="header-buttons">
+            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
+            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
+            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="title">Artificial Intelligence Projects</div>
+        <div class="project-type">C# | C++</div>
+        <div class="contributions">List of Contributions:</div>
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/AI_CoverImage.png" />
+                <img src="../SiteImages/AI_CoverImage.png" alt="A* path planning visualization" />
             </div>
             <div class="contribution-title">
                 A* Path Planning Implementation
@@ -42,24 +37,17 @@
             <div class="contribution-summary">
                 Implemented the A* algorithm for path planning, focusing on:
                 <ul>
-                    <li>
-                        Building the SearchGraph using the provided TileMap and establishing Hex Tile Adjacency.
-                    </li>
-                    <li>
-                        Developing and optimizing the A* algorithm to find the most efficient path between nodes.
-                    </li>
-                    <li>
-                        Testing and comparing the algorithm's performance against other search algorithms.
-                    </li>
-                    <li>
-                        Ensuring the solution path is optimal and the algorithm performs efficiently under various conditions.
-                    </li>
+                    <li>Building the SearchGraph using the provided TileMap and establishing Hex Tile Adjacency.</li>
+                    <li>Developing and optimizing the A* algorithm to find the most efficient path between nodes.</li>
+                    <li>Testing and comparing the algorithm's performance against other search algorithms.</li>
+                    <li>Ensuring the solution path is optimal and the algorithm performs efficiently under various conditions.</li>
+                </ul>
             </div>
         </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/.png" />
+                <img src="../SiteImages/AI_CoverImage.png" alt="Flocking algorithm simulation" />
             </div>
             <div class="contribution-title">
                 Flocking Algorithm Implementation
@@ -67,23 +55,17 @@
             <div class="contribution-summary">
                 Implemented flocking algorithms to simulate realistic group behaviors, including:
                 <ul>
-                    <li>
-                        **Alignment Algorithm**: Calculated the average velocity of each boid and scaled it to create a unit-length influence vector.
-                    </li>
-                    <li>
-                        **Cohesion Algorithm**: Created an influence vector from each boid's position to the average position of the flock, scaling it based on distance.
-                    </li>
-                    <li>
-                        **Separation Algorithm**: Calculated vectors away from nearby boids to avoid collisions, scaling the influence based on proximity.
-                    </li>
-                    <li>
-                        Combined these behaviors to achieve lifelike flocking movement and tested the implementation for various scenarios.
-                    </li>
+                    <li><strong>Alignment:</strong> Calculated the average velocity of each boid and scaled it to create a unit-length influence vector.</li>
+                    <li><strong>Cohesion:</strong> Created an influence vector from each boid's position to the average position of the flock, scaling it based on distance.</li>
+                    <li><strong>Separation:</strong> Calculated vectors away from nearby boids to avoid collisions, scaling the influence based on proximity.</li>
+                    <li>Combined these behaviors to achieve lifelike flocking movement and tested the implementation for various scenarios.</li>
+                </ul>
             </div>
         </div>
+
         <div class="additional-video">
-            <iframe src="https://www.youtube.com/embed/mxA9RaNDKJ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/mxA9RaNDKJ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="AI Projects Demo"></iframe>
         </div>
-    </div>
+    </main>
 </body>
 </html>

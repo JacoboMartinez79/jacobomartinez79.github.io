@@ -1,63 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Big Greasy Capstone Project — Jacobo Martinez">
+    <meta name="author" content="Jacobo Martinez">
     <link rel="stylesheet" href="../SiteCSS/Homepage.css" />
     <link rel="stylesheet" href="../SiteCSS/Projects.css" />
-    <link rel="icon" type="image/svg" href="../SiteImages/favicon.png" />
-    <title>Jacobo M.</title>
-    <meta charset="utf-8">
-    <meta name="description" content="Portfolio">
-    <meta name="author" content="Jacobo Martinez">
+    <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <title>Big Greasy — Jacobo Martinez</title>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
         <div class="header-title">
-            <img src="../SiteImages/favicon.png" />
+            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
             <a href="Homepage.html">Jacobo Martinez</a>
         </div>
-        <div class="header-buttons">
-            <div class="header-button"> <a href="Homepage.html">Homepage </a> </div>
-            <div class="header-button"> <a href="Homepage.html#Projects">Projects </a> </div>
-            <div class="header-button"> <a href="Homepage.html#AboutMe">About Me </a> </div>
-        </div>
-    </div>
-    <div class="main">
-        <div class="title">
-            Capstone Project (Big Greasy)
-        </div>
-        <div class="project-type">
-            Unity - C# | XR/VR
-        </div>
-        <div class="contributions">
-            List of Contributions:
-        </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+        <nav class="header-buttons">
+            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
+            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
+            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="title">Capstone Project (Big Greasy)</div>
+        <div class="project-type">Unity — C# | XR/VR</div>
+        <div class="contributions">List of Contributions:</div>
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/BigGreasy_CoverImage.png" />
+                <img src="../SiteImages/BigGreasy_CoverImage.png" alt="Big Greasy level design screenshot" />
             </div>
             <div class="contribution-title">
-                Level Design of the Game
+                Level Design
             </div>
             <div class="contribution-summary">
                 Contributed to the level design of "Big Greasy" by:
                 <ul>
-                    <li>
-                        Exploring player interactions with the world and creating engaging level layouts.
-                    </li>
-                    <li>
-                        Implementing people and with text and voice outputs(I did the voice lines) within the game for the player to interact with.
-                    </li>
-                    <li>
-                        Ensuring the level design supports and enhances the game's narrative and mechanics(there are random objects that the player can just pickup and throw through the world.).
-                    </li>
+                    <li>Exploring player interactions with the world and creating engaging level layouts.</li>
+                    <li>Implementing NPCs with text and voice outputs (including recording the voice lines) for the player to interact with.</li>
+                    <li>Ensuring the level design supports and enhances the game's narrative and mechanics — including random objects the player can pick up and throw.</li>
                 </ul>
             </div>
         </div>
-        <hr style="height: 2px; border-width: 0; color: #AA6C39; background-color: #AA6C39 ">
+
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/.png" />
+                <img src="../SiteImages/BigGreasy_CoverImage.png" alt="Big Greasy UI screenshot" />
             </div>
             <div class="contribution-title">
                 UI Developer
@@ -65,19 +54,12 @@
             <div class="contribution-summary">
                 Developed the user interface for "Big Greasy," focusing on:
                 <ul>
-                    <li>
-                        Creating interactions between the player and the world using an interface that avoids constant updates in the `Update` function.
-                    </li>
-                    &nbsp;
-                    Developing dynamic UI elements that provide information to the player about interactable objects.
-                    </li>
-                    &nbsp;
-                    <li>
-                        The UI, I worked on for the Rat Race was probably the work I'm proud about because the interactions and working between the timer to function was a bit tricky.The organization of the was a bit tricky between having a UI Manager talk to the RaceTrack script that determines the when the races starts and who wins, and the RatMenu script that decreases money and decides how much money it gives the player.
-                    </li>
+                    <li>Creating interactions between the player and the world using an event-driven interface that avoids constant polling in the Update function.</li>
+                    <li>Developing dynamic UI elements that provide information to the player about interactable objects.</li>
+                    <li>Building the Rat Race UI — a highlight of this project. Coordinating between a UI Manager, the RaceTrack script (which determines race start and winner), and the RatMenu script (which manages player money) required careful system design and was the most rewarding work on this project.</li>
                 </ul>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>
