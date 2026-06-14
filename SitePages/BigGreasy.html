@@ -3,14 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Big Greasy Capstone Project — Jacobo Martinez">
+    <meta name="description" content="Big Greasy Capstone Project | Jacobo Martinez">
     <meta name="author" content="Jacobo Martinez">
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css" />
-    <link rel="stylesheet" href="../SiteCSS/Projects.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=5" />
+    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=5" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=5" />
     <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
-    <title>Big Greasy — Jacobo Martinez</title>
+    <title>Big Greasy | Jacobo Martinez</title>
 </head>
 <body>
+    <canvas class="bg-constellation" aria-hidden="true"></canvas>
     <header class="header">
         <div class="header-title">
             <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
@@ -20,11 +25,12 @@
             <div class="header-button"><a href="Homepage.html">Homepage</a></div>
             <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
             <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
+            <div class="header-button"><a href="Homepage.html#Contact">Contact</a></div>
         </nav>
     </header>
     <main class="main">
         <div class="title">Capstone Project (Big Greasy)</div>
-        <div class="project-type">Unity — C# | XR/VR</div>
+        <div class="project-type">Unity · C# | XR/VR</div>
         <div class="contributions">List of Contributions:</div>
 
         <div class="contribution-left">
@@ -39,7 +45,7 @@
                 <ul>
                     <li>Exploring player interactions with the world and creating engaging level layouts.</li>
                     <li>Implementing NPCs with text and voice outputs (including recording the voice lines) for the player to interact with.</li>
-                    <li>Ensuring the level design supports and enhances the game's narrative and mechanics — including random objects the player can pick up and throw.</li>
+                    <li>Making sure the level design supports the game's narrative and mechanics, including random objects the player can pick up and throw.</li>
                 </ul>
             </div>
         </div>
@@ -56,10 +62,11 @@
                 <ul>
                     <li>Creating interactions between the player and the world using an event-driven interface that avoids constant polling in the Update function.</li>
                     <li>Developing dynamic UI elements that provide information to the player about interactable objects.</li>
-                    <li>Building the Rat Race UI — a highlight of this project. Coordinating between a UI Manager, the RaceTrack script (which determines race start and winner), and the RatMenu script (which manages player money) required careful system design and was the most rewarding work on this project.</li>
+                    <li>Building the Rat Race UI, which was the highlight of this project. Coordinating between a UI Manager, the RaceTrack script (which determines race start and winner), and the RatMenu script (which manages player money) took careful system design, and it was the most rewarding work I did here.</li>
                 </ul>
             </div>
         </div>
     </main>
+    <script src="../SiteScripts/bg-constellation.js?v=5"></script>
 </body>
 </html>

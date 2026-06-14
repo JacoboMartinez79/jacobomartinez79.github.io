@@ -3,13 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jacobo Martinez — Game Developer &amp; Software Engineer portfolio">
+    <meta name="description" content="Jacobo Martinez, Game Developer and Software Engineer portfolio">
     <meta name="author" content="Jacobo Martinez">
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=5" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=5" />
     <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
     <title>Jacobo Martinez</title>
 </head>
 <body>
+    <canvas class="bg-constellation" aria-hidden="true"></canvas>
     <header class="header">
         <div class="header-title">
             <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
@@ -19,17 +24,19 @@
             <div class="header-button"><a href="Homepage.html">Homepage</a></div>
             <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
             <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
+            <div class="header-button"><a href="Homepage.html#Contact">Contact</a></div>
         </nav>
     </header>
     <main class="main">
         <section class="hero">
+            <canvas class="hero-canvas" aria-hidden="true"></canvas>
             <div class="hero-headline">Game Developer &amp; Software Engineer</div>
             <div class="hero-subline">
-                Building interactive experiences — from VR simulators and survival games to graphics engines and AI systems.
-                Specializing in C++, C#, Unity, and DirectX 11.
+                I build interactive experiences that span VR simulators, survival games, graphics engines, and AI systems.
+                My main tools are C++, C#, Unity, and DirectX 11.
             </div>
             <div class="hero-links">
-                <a href="Homepage.html#Projects">View Projects</a>
+                <a class="cta-primary" href="Homepage.html#Projects">View Projects</a>
                 <a href="Homepage.html#AboutMe">About Me</a>
             </div>
         </section>
@@ -46,9 +53,9 @@
                         <img src="../SiteImages/BigGreasy_CoverImage.png" alt="Big Greasy game screenshot" />
                     </div>
                     <div class="project-summary">
-                        Fast food simulator. Gameplay is your day-to-day job at Big Grease working the graveyard shift. Your ultimate goal is to make rent for the week. Simulate the exciting life of fast food employment while flexing your time management skills. However, beware the supernatural events that occur during your monotonous job.
+                        A fast food sim where you work the graveyard shift at Big Grease and try to make rent for the week. Manage your time, keep customers happy, and survive the supernatural events that creep into your monotonous job.
                         <br><br>
-                        <a href="https://blacksandsstudios.itch.io/big-grease">Itch.io Page</a>
+                        <a href="https://blacksandsstudios.itch.io/big-grease">Play on Itch.io</a>
                     </div>
                 </div>
                 <!--Wizards Day-->
@@ -60,7 +67,7 @@
                         <img src="../SiteImages/WizardsDay_CoverImage.png" alt="Wizards Day game screenshot" />
                     </div>
                     <div class="project-summary">
-                        "Wizards Day" is a top-down survival game where players need to survive for five rounds. Players collect experience points to increase the damage of their fireball attack against enemies.
+                        A top-down survival game where you fight through five rounds of enemies. Collect experience to level up your fireball and hit harder each round.
                     </div>
                 </div>
                 <!--AI-->
@@ -72,7 +79,7 @@
                         <img src="../SiteImages/AI_CoverImage.png" alt="AI path planning visualization" />
                     </div>
                     <div class="project-summary">
-                        Implemented a comprehensive path planning system, including A* for optimal pathfinding and flocking algorithms for realistic group behaviors. Built a SearchGraph from tile data and managed hexagonal tile adjacency within a 2D array, with implementations ranging from BFS to A*.
+                        A path planning system covering everything from BFS to A* for optimal pathfinding, plus flocking algorithms for believable group movement. I built the search graph from tile data and handled hexagonal adjacency across a 2D grid.
                     </div>
                 </div>
                 <!--Engine Development-->
@@ -84,7 +91,7 @@
                         <img src="../SiteImages/EngineDev_CoverImage.png" alt="Engine development particle system" />
                     </div>
                     <div class="project-summary">
-                        Implemented a particle system using sorted and unsorted pools. Sorted pools managed active particles for efficient rendering, while unsorted pools handled inactive particles for quick allocation and deallocation. This optimized performance for large numbers of particles with smooth, responsive visual effects.
+                        A particle system built around sorted and unsorted pools. Active particles stay sorted for efficient rendering, while inactive ones sit in a pool for fast allocation. The result stays smooth even with large particle counts.
                     </div>
                 </div>
                 <!--Graphics Projects-->
@@ -96,7 +103,7 @@
                         <img src="../SiteImages/Graphics_CoverGIF.gif" alt="Graphics project animation" />
                     </div>
                     <div class="project-summary">
-                        Projects ranging from creating graphics from scratch — including a mini linear algebra library for matrix math — to following algorithms to draw lines, working with the DirectX 11 API, and a touch of the Vulkan API.
+                        Graphics work built from the ground up, starting with my own mini linear algebra library for matrix math and line-drawing algorithms, then moving into the DirectX 11 API with a bit of Vulkan along the way.
                     </div>
                 </div>
                 <!--Computer Networks-->
@@ -108,7 +115,7 @@
                         <img src="../SiteImages/ComputerNetworks_CoverImage.png" alt="Computer networks server-client diagram" />
                     </div>
                     <div class="project-summary">
-                        Developed a server-client chat application using the WinSock API and multiplexing techniques. Features robust communication between clients and server, enabling real-time chat functionality with support for up to five simultaneous connections.
+                        A server-client chat app built on the WinSock API with multiplexing. It handles real-time messaging between clients and the server, with support for up to five connections at once.
                     </div>
                 </div>
                 <!--wxWidgets Projects-->
@@ -120,7 +127,7 @@
                         <img src="../SiteImages/wxWidgets_CoverGIF.gif" alt="wxWidgets Game of Life simulation" />
                     </div>
                     <div class="project-summary">
-                        Desktop GUI applications built with Windows Forms and wxWidgets. Features Conway's Game of Life (cellular automata) implemented in C# and a wxWidgets calculator in C++ using the command pattern.
+                        Desktop GUI apps built with Windows Forms and wxWidgets. Includes a C# version of Conway's Game of Life and a C++ calculator in wxWidgets that uses the command pattern for undo and redo.
                     </div>
                 </div>
             </div>
@@ -131,7 +138,7 @@
                 <h2>About Me</h2>
                 <div class="about-me-content">
                     <p>
-                        Hi, I'm Jacobo Martinez — a game developer and software engineer with a focus on C++, C#, Unity, and graphics programming. I'm passionate about building interactive experiences, from VR capstone projects to low-level graphics engines.
+                        Hi, I'm Jacobo Martinez, a game developer and software engineer focused on C++, C#, Unity, and graphics programming. I love building interactive experiences, whether that's a VR capstone project or a low-level graphics engine.
                     </p>
                     <p>
                         I enjoy working across the full stack of game development: engine architecture, AI systems, networking, UI design, and project management. I thrive in roles where I can contribute technically while also thinking about the player experience.
@@ -152,5 +159,39 @@
             </div>
         </section>
     </main>
+
+    <footer class="site-footer" id="Contact">
+        <svg class="footer-silhouette" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+            <rect class="sky-fill" x="0" y="0" width="1440" height="160" />
+            <!-- back ridge: distant rolling mountains -->
+            <path class="ridge-back" d="M0,160 L0,96 L120,64 L260,104 L400,52 L560,108 L700,60 L860,112 L1020,56 L1180,104 L1320,68 L1440,100 L1440,160 Z" />
+            <!-- front ridge: nearer skyline with a few building-like peaks -->
+            <path class="ridge-front" d="M0,160 L0,128 L90,128 L90,96 L150,96 L150,128 L240,128 L300,84 L380,128 L470,128 L470,104 L520,104 L520,128 L640,128 L700,72 L780,128 L900,128 L900,100 L950,100 L950,128 L1080,128 L1140,88 L1220,128 L1320,128 L1320,108 L1370,108 L1370,128 L1440,128 L1440,160 Z" />
+        </svg>
+        <div class="footer-content">
+            <div class="footer-kicker">Get in touch</div>
+            <h2 class="footer-title">Let's build something together</h2>
+            <p class="footer-text">
+                Open to game development and software engineering roles, collaborations, and interesting problems. The fastest way to reach me is email.
+            </p>
+            <div class="footer-links">
+                <a class="cta-primary" href="mailto:jacmar1u@gmail.com">Contact Me</a>
+                <a href="https://github.com/JacoboMartinez79" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/jacobodev" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://blacksandsstudios.itch.io/big-grease" target="_blank" rel="noopener">Itch.io</a>
+            </div>
+            <div class="footer-copyright">© 2026 Jacobo Martinez</div>
+        </div>
+    </footer>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+        }
+    }
+    </script>
+    <script src="../SiteScripts/bg-constellation.js?v=5"></script>
+    <script type="module" src="../SiteScripts/hero-boids.js?v=5"></script>
 </body>
 </html>
