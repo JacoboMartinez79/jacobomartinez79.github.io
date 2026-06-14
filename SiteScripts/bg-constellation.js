@@ -23,8 +23,8 @@
     ).matches;
 
     // Palette (matches the site's accent + slate).
-    const NODE_COLOR = "70, 113, 230";   // --accent rgb
-    const LINE_COLOR = "120, 130, 150";  // muted slate rgb
+    const NODE_COLOR = "70, 113, 230";  // --accent rgb
+    const LINE_COLOR = "90, 100, 120";  // deeper slate so lines read on light bg
 
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
@@ -92,10 +92,10 @@
                 const distSq = dx * dx + dy * dy;
                 if (distSq < linkDist * linkDist) {
                     const dist = Math.sqrt(distSq);
-                    // Fade line with distance; keep it subtle.
-                    const alpha = (1 - dist / linkDist) * 0.22;
+                    // Fade line with distance, but keep it clearly visible.
+                    const alpha = (1 - dist / linkDist) * 0.5;
                     ctx.strokeStyle = `rgba(${LINE_COLOR}, ${alpha})`;
-                    ctx.lineWidth = 1;
+                    ctx.lineWidth = 1.1;
                     ctx.beginPath();
                     ctx.moveTo(a.x, a.y);
                     ctx.lineTo(b.x, b.y);
