@@ -1,16 +1,15 @@
 :root {
-    /* Softer light palette — warm off-white, gentle contrast (not stark white). */
-    --bg: #ece9e4;            /* warm off-white page background */
-    --bg-elev: #f6f4f0;       /* cards / raised surfaces (soft, not pure white) */
-    --text: #2a2d33;          /* softened near-black (not harsh) */
-    --text-muted: #6a7078;    /* secondary text */
-    --text-hover: #2f5fd0;    /* link/text hover */
-    --accent: #4671e6;        /* primary accent (muted blue) */
+    --bg: #ece9e4;            /* off-white */
+    --bg-elev: #ffffff;       /* cards (crisp white to lift off the page) */
+    --text: #2a2d33;
+    --text-muted: #6a7078;
+    --text-hover: #2f5fd0;
+    --accent: #4671e6;        /* blue */
     --accent-hover: #2f5fd0;
-    --accent-soft: #e4eaf9;   /* tinted accent background */
-    --border: #ddd8d0;        /* soft warm borders */
-    --border-strong: #c8c2b8;
-    --shadow: 0 1px 2px rgba(60, 55, 48, 0.04), 0 6px 20px rgba(60, 55, 48, 0.07);
+    --accent-soft: #e4eaf9;
+    --border: #d8d2c8;
+    --border-strong: #c2bbae;
+    --shadow: 0 1px 3px rgba(60, 55, 48, 0.06), 0 10px 28px rgba(60, 55, 48, 0.12);
     --radius: 14px;
 
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -19,8 +18,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 17px;
-    /* Background lives on <html> so the fixed constellation canvas (z-index:-1)
-       can render above this backdrop but below the page content in <body>. */
+    /* bg on html so the constellation canvas can sit between it and the content */
     background-color: var(--bg);
 }
 
@@ -187,15 +185,14 @@ a:hover {
 }
 
 /* ===== Projects ===== */
-/* Responsive gallery: 3 across on desktop, auto-fitting down to 1 on mobile. */
 .projects {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.4rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
 }
 
-/* Compact stacked card: image on top, then title + summary. */
 .project-section {
+    position: relative;
     display: flex;
     flex-direction: column;
     background-color: var(--bg-elev);
@@ -216,7 +213,7 @@ a:hover {
     order: -1;
 }
 
-    /* Consistent-height media keeps every card aligned in the grid. */
+    /* fixed ratio so cards line up */
     .project-media img {
         width: 100%;
         aspect-ratio: 16 / 10;
@@ -241,6 +238,20 @@ a:hover {
     .project-title a:hover {
         color: var(--accent);
     }
+
+    /* make the whole card clickable via the title link */
+    .project-title a::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+/* keep any other links in the card (e.g. Itch.io) clickable above the overlay */
+.project-summary a {
+    position: relative;
+    z-index: 1;
+}
 
 .project-summary {
     font-size: 0.92rem;
@@ -310,16 +321,16 @@ a:hover {
     overflow: hidden;
 }
 
-/* Layered city/mountain silhouette sitting at the top edge of the footer. */
+/* skyline silhouette at the top of the footer */
 .footer-silhouette {
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom: -1px; /* avoid a hairline gap above the dark fill */
+    margin-bottom: -1px; /* kill hairline gap */
 }
 
 .footer-silhouette .sky-fill {
-    fill: var(--bg); /* matches the page so the silhouette reads as a horizon */
+    fill: var(--bg);
 }
 
 .footer-silhouette .ridge-back {
@@ -406,10 +417,10 @@ a:hover {
 }
 
 
-/* Tablet: drop the project gallery to 2 columns. */
+/* tablet and below: single column so images stay large */
 @media (max-width: 1023px) {
     .projects {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 }
 
@@ -444,7 +455,7 @@ a:hover {
     }
 }
 
-/* Phone: single-column project gallery. */
+/* phone: 1 column */
 @media (max-width: 620px) {
     .projects {
         grid-template-columns: 1fr;

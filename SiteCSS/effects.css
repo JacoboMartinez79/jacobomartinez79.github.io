@@ -1,6 +1,4 @@
-/* ===== Full-page constellation background ===== */
-/* Fixed canvas behind all content. The page background is transparent so this
-   shows through; section surfaces (cards, footer) stay opaque for legibility. */
+/* constellation canvas, sits behind everything */
 .bg-constellation {
     position: fixed;
     inset: 0;
@@ -11,15 +9,12 @@
     pointer-events: none;
 }
 
-/* ===== Hero WebGL boids background ===== */
-
-/* The hero becomes a positioning context so the canvas can sit behind its text. */
+/* hero boids */
 .hero {
     position: relative;
     overflow: hidden;
 }
 
-/* Full-bleed canvas behind the hero content. */
 .hero-canvas {
     position: absolute;
     inset: 0;
@@ -27,8 +22,7 @@
     height: 100%;
     z-index: 0;
     display: block;
-    /* Fade in once the simulation has rendered its first frame (JS adds .is-ready). */
-    opacity: 0;
+    opacity: 0; /* fades in once it's drawn */
     transition: opacity 0.8s ease;
     pointer-events: none;
 }
@@ -37,7 +31,6 @@
     opacity: 1;
 }
 
-/* Lift the hero's real content above the canvas. */
 .hero-headline,
 .hero-subline,
 .hero-links {
@@ -45,7 +38,7 @@
     z-index: 1;
 }
 
-/* A soft light wash keeps text crisp over the densest boid clusters. */
+/* keep the headline readable over the boids */
 .hero::after {
     content: "";
     position: absolute;
@@ -60,8 +53,6 @@
     );
 }
 
-/* Users who prefer reduced motion get no animation. The JS renders a single
-   static frame; we also dim the canvas so text stays comfortable. */
 @media (prefers-reduced-motion: reduce) {
     .hero-canvas {
         opacity: 0.45;

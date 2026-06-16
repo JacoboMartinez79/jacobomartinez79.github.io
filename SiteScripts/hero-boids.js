@@ -1,11 +1,4 @@
-// Hero flocking background — a real-time boids simulation rendered with Three.js.
-//
-// Mirrors the alignment / cohesion / separation model from the AI project.
-// Built with the portfolio in mind: it pauses when offscreen or the tab is
-// hidden, caps the pixel ratio, respects prefers-reduced-motion, scales down
-// on small screens, and falls back silently to the static hero if WebGL is
-// unavailable.
-
+// Boids hero background. Same flocking model as my AI project.
 import * as THREE from "three";
 
 const canvas = document.querySelector(".hero-canvas");
@@ -13,7 +6,7 @@ if (canvas) {
     try {
         initBoids(canvas);
     } catch (err) {
-        // If anything goes wrong (no WebGL, etc.) leave the static hero intact.
+        // no WebGL? fall back to the plain hero
         console.warn("Hero boids disabled:", err);
         canvas.remove();
     }
@@ -24,12 +17,11 @@ function initBoids(canvas) {
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    // Palette pulled from the site's CSS variables / theme.
-    // Light theme: muted slate / accent-blue boids on a warm off-white bg.
-    // (No additive glow — that washes out on light; we use normal blending.)
     const COLOR_BG = 0xece9e4;
-    const COLOR_BASE = new THREE.Color(0x8a8f99);   // muted slate-gray
+    const COLOR_BASE = new THREE.Color(0x8a8f99);   // slate
     const COLOR_ACCENT = new THREE.Color(0x4671e6); // accent blue
+    const bgColor = new THREE.Color(COLOR_BG);
+    const FADE_MARGIN = 14; // world units near each edge where boids fade
 
     const renderer = new THREE.WebGLRenderer({
         canvas,
@@ -42,16 +34,14 @@ function initBoids(canvas) {
 
     const scene = new THREE.Scene();
 
-    // Bounds of the simulation world. We use an orthographic camera so the
-    // boids read as a flat 2D field behind the text.
+    // ortho camera so it reads as flat 2D behind the text
     let width = canvas.clientWidth || 1;
     let height = canvas.clientHeight || 1;
-    const WORLD = 100; // half-extent of the world on the larger axis
+    const WORLD = 100;
 
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, -100, 100);
     camera.position.z = 10;
 
-    // ----- Boid setup -----
     const isSmall = window.matchMedia("(max-width: 1023px)").matches;
     const COUNT = isSmall ? 90 : 220;
 
@@ -81,17 +71,19 @@ function initBoids(canvas) {
         new THREE.BufferAttribute(positions, 3)
     );
 
-    // Per-boid color varied between base and accent for subtle depth.
+    // vary each boid between slate and accent. baseColors holds the true color;
+    // colors is what's drawn each frame, faded toward the bg near the edges.
+    const baseColors = new Float32Array(COUNT * 3);
     const colors = new Float32Array(COUNT * 3);
     for (let i = 0; i < COUNT; i++) {
         const c = COLOR_BASE.clone().lerp(COLOR_ACCENT, Math.random() * 0.7);
-        colors[i * 3 + 0] = c.r;
-        colors[i * 3 + 1] = c.g;
-        colors[i * 3 + 2] = c.b;
+        baseColors[i * 3 + 0] = c.r;
+        baseColors[i * 3 + 1] = c.g;
+        baseColors[i * 3 + 2] = c.b;
     }
+    colors.set(baseColors);
     geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
-    // Soft round sprite so points read as smooth dots, not squares.
     const sprite = makeDotTexture();
     const material = new THREE.PointsMaterial({
         size: 4.5,
@@ -107,14 +99,12 @@ function initBoids(canvas) {
     const points = new THREE.Points(geometry, material);
     scene.add(points);
 
-    // ----- Sizing -----
     function resize() {
         width = canvas.clientWidth || 1;
         height = canvas.clientHeight || 1;
         renderer.setSize(width, height, false);
 
-        // Keep the world square-ish while filling the canvas: scale the
-        // camera frustum to the aspect ratio so boids aren't stretched.
+        // scale the frustum to aspect so boids don't stretch
         const aspect = width / height;
         if (aspect >= 1) {
             camera.left = -WORLD * aspect;
@@ -132,7 +122,6 @@ function initBoids(canvas) {
     resize();
     window.addEventListener("resize", resize);
 
-    // ----- Flocking step -----
     function step() {
         const boundsX = camera.right;
         const boundsY = camera.top;
@@ -156,15 +145,14 @@ function initBoids(canvas) {
                 const distSq = dx * dx + dy * dy;
                 if (distSq > PERCEPTION * PERCEPTION || distSq === 0) continue;
 
-                // Alignment: average neighbor velocity.
+                // alignment + cohesion accumulators
                 alignX += velocities[j * 2];
                 alignY += velocities[j * 2 + 1];
-                // Cohesion: average neighbor position.
                 cohX += positions[j * 3];
                 cohY += positions[j * 3 + 1];
                 neighbors++;
 
-                // Separation: steer away, weighted by closeness.
+                // separation, weighted by closeness
                 if (distSq < SEPARATION_DIST * SEPARATION_DIST) {
                     const dist = Math.sqrt(distSq) || 0.0001;
                     sepX -= dx / dist;
@@ -176,7 +164,6 @@ function initBoids(canvas) {
             let ax = 0, ay = 0;
 
             if (neighbors > 0) {
-                // Alignment steering force.
                 let aX = alignX / neighbors;
                 let aY = alignY / neighbors;
                 [aX, aY] = setMag(aX, aY, MAX_SPEED);
@@ -186,7 +173,6 @@ function initBoids(canvas) {
                 ax += sAx;
                 ay += sAy;
 
-                // Cohesion steering force.
                 let cX = cohX / neighbors - px;
                 let cY = cohY / neighbors - py;
                 [cX, cY] = setMag(cX, cY, MAX_SPEED);
@@ -215,7 +201,7 @@ function initBoids(canvas) {
             let nx = px + vx;
             let ny = py + vy;
 
-            // Wrap around the screen edges for a continuous field.
+            // wrap edges
             if (nx > boundsX) nx = -boundsX;
             else if (nx < -boundsX) nx = boundsX;
             if (ny > boundsY) ny = -boundsY;
@@ -225,16 +211,25 @@ function initBoids(canvas) {
             positions[i * 3 + 1] = ny;
             velocities[i * 2] = vx;
             velocities[i * 2 + 1] = vy;
+
+            // fade toward the bg as a boid nears any edge, so wrapping isn't a snap
+            const edgeX = Math.min(boundsX - Math.abs(nx), FADE_MARGIN);
+            const edgeY = Math.min(boundsY - Math.abs(ny), FADE_MARGIN);
+            const fade = Math.max(0, Math.min(edgeX, edgeY)) / FADE_MARGIN;
+            const o = i * 3;
+            colors[o] = bgColor.r + (baseColors[o] - bgColor.r) * fade;
+            colors[o + 1] = bgColor.g + (baseColors[o + 1] - bgColor.g) * fade;
+            colors[o + 2] = bgColor.b + (baseColors[o + 2] - bgColor.b) * fade;
         }
 
         geometry.attributes.position.needsUpdate = true;
+        geometry.attributes.color.needsUpdate = true;
     }
 
     function render() {
         renderer.render(scene, camera);
     }
 
-    // ----- Run loop with pause controls -----
     let rafId = null;
     let running = false;
     let visibleOnScreen = true;
@@ -259,7 +254,7 @@ function initBoids(canvas) {
         }
     }
 
-    // Pause when the hero scrolls out of view.
+    // pause when scrolled offscreen
     if ("IntersectionObserver" in window) {
         const io = new IntersectionObserver(
             (entries) => {
@@ -272,15 +267,14 @@ function initBoids(canvas) {
         io.observe(canvas);
     }
 
-    // Pause when the tab is hidden.
+    // pause when tab is hidden
     document.addEventListener("visibilitychange", () => {
         if (document.hidden) stop();
         else if (visibleOnScreen) start();
     });
 
-    // First paint, then reveal.
     if (reducedMotion) {
-        // Settle the flock a little so a static frame still looks intentional.
+        // let it settle so the static frame looks intentional
         for (let k = 0; k < 60; k++) step();
         render();
     } else {
@@ -290,8 +284,6 @@ function initBoids(canvas) {
 
     requestAnimationFrame(() => canvas.classList.add("is-ready"));
 }
-
-// ----- helpers -----
 
 function limit(x, y, max) {
     const mSq = x * x + y * y;
@@ -307,8 +299,7 @@ function setMag(x, y, mag) {
     return [(x / m) * mag, (y / m) * mag];
 }
 
-// Soft-edged solid dot drawn to a canvas so points render as smooth circles
-// (opaque core, short anti-aliased falloff) rather than squares.
+// soft round dot so points aren't squares
 function makeDotTexture() {
     const size = 64;
     const c = document.createElement("canvas");

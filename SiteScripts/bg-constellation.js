@@ -1,13 +1,4 @@
-// Full-page ambient "constellation" background.
-//
-// Slowly drifting nodes that draw faint connecting lines when they come near
-// each other, evoking a graph / network (fits the AI + graphics theme). Drawn
-// with the Canvas 2D API (lighter than WebGL for thin lines, no dependency).
-//
-// Portfolio-friendly: pauses when the tab is hidden, caps the pixel ratio,
-// respects prefers-reduced-motion (renders one static frame), thins out on
-// small screens, and sits behind all content via a fixed, -1 z-index canvas.
-
+// Drifting dots that link up when they get close. Plain canvas 2D.
 (function () {
     const canvas = document.querySelector(".bg-constellation");
     if (!canvas) return;
@@ -22,9 +13,8 @@
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    // Palette (matches the site's accent + slate).
-    const NODE_COLOR = "70, 113, 230";  // --accent rgb
-    const LINE_COLOR = "90, 100, 120";  // deeper slate so lines read on light bg
+    const NODE_COLOR = "70, 113, 230";  // accent blue
+    const LINE_COLOR = "90, 100, 120";  // slate
 
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
@@ -38,7 +28,7 @@
     }
 
     function buildNodes() {
-        // Density scales with viewport area, capped for performance.
+        // scale count with screen size, capped
         const area = w * h;
         const target = isSmall() ? 45 : 90;
         const count = Math.min(target, Math.round(area / 16000));
@@ -71,7 +61,7 @@
         for (const n of nodes) {
             n.x += n.vx;
             n.y += n.vy;
-            // Wrap around the edges for a continuous field.
+            // wrap edges
             if (n.x < -10) n.x = w + 10;
             else if (n.x > w + 10) n.x = -10;
             if (n.y < -10) n.y = h + 10;
@@ -82,7 +72,7 @@
     function draw() {
         ctx.clearRect(0, 0, w, h);
 
-        // Connecting lines (the "constellation").
+        // lines between nearby nodes
         for (let i = 0; i < nodes.length; i++) {
             const a = nodes[i];
             for (let j = i + 1; j < nodes.length; j++) {
@@ -92,8 +82,7 @@
                 const distSq = dx * dx + dy * dy;
                 if (distSq < linkDist * linkDist) {
                     const dist = Math.sqrt(distSq);
-                    // Fade line with distance, but keep it clearly visible.
-                    const alpha = (1 - dist / linkDist) * 0.5;
+                    const alpha = (1 - dist / linkDist) * 0.5; // fade with distance
                     ctx.strokeStyle = `rgba(${LINE_COLOR}, ${alpha})`;
                     ctx.lineWidth = 1.1;
                     ctx.beginPath();
@@ -104,7 +93,6 @@
             }
         }
 
-        // Nodes.
         for (const n of nodes) {
             ctx.fillStyle = `rgba(${NODE_COLOR}, 0.5)`;
             ctx.beginPath();
@@ -113,7 +101,6 @@
         }
     }
 
-    // ----- run loop with pause controls -----
     let rafId = null;
     let running = false;
 

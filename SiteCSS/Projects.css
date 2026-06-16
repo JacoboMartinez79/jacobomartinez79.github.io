@@ -1,3 +1,13 @@
+/* light panel so the constellation doesn't show through the content */
+.main {
+    background-color: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1vh 4vw 4vh 4vw;
+    margin: 3vh auto 6vh auto;
+}
+
 .title {
     padding-top: 5vh;
     color: var(--text);
