@@ -274,8 +274,7 @@ function initBoids(canvas) {
     });
 
     if (reducedMotion) {
-        // let it settle so the static frame looks intentional
-        for (let k = 0; k < 60; k++) step();
+        // static frame: keep the random scatter (a settled flock looks paused)
         render();
     } else {
         render();

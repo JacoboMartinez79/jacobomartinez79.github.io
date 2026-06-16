@@ -47,10 +47,10 @@
     }
 
     function resize() {
-        w = window.innerWidth;
-        h = window.innerHeight;
-        canvas.width = w * dpr;
-        canvas.height = h * dpr;
+        w = window.innerWidth || document.documentElement.clientWidth || 1;
+        h = window.innerHeight || document.documentElement.clientHeight || 1;
+        canvas.width = Math.round(w * dpr);
+        canvas.height = Math.round(h * dpr);
         canvas.style.width = w + "px";
         canvas.style.height = h + "px";
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -129,12 +129,19 @@
         else start();
     });
 
+    // only rebuild on real width changes; mobile address bars jitter the height
+    let lastW = 0;
     let resizeTimer = null;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(resize, 200);
+        resizeTimer = setTimeout(() => {
+            if (Math.abs(window.innerWidth - lastW) < 2) return;
+            lastW = window.innerWidth;
+            resize();
+        }, 200);
     });
 
+    lastW = window.innerWidth;
     resize();
     if (reducedMotion) {
         draw(); // single static frame
