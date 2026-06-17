@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=9" />
-    <link rel="stylesheet" href="../SiteCSS/effects.css?v=9" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=10" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=10" />
     <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
     <title>Jacobo Martinez</title>
 </head>
@@ -147,7 +147,7 @@
                         <a href="https://github.com/JacoboMartinez79" target="_blank" rel="noopener">GitHub</a>
                         <a href="https://www.linkedin.com/in/jacobodev" target="_blank" rel="noopener">LinkedIn</a>
                         <a href="https://blacksandsstudios.itch.io/big-grease" target="_blank" rel="noopener">Itch.io</a>
-                        <a href="mailto:jacmar1u@gmail.com">Email</a>
+                        <a href="#" class="js-email" data-user="jacmar1u" data-domain="gmail.com">Email</a>
                     </div>
                 </div>
             </div>
@@ -175,7 +175,7 @@
                 Open to game development and software engineering roles, collaborations, and interesting problems. The fastest way to reach me is email.
             </p>
             <div class="footer-links">
-                <a class="cta-primary" href="mailto:jacmar1u@gmail.com">Contact Me</a>
+                <a class="cta-primary js-email" href="#" data-user="jacmar1u" data-domain="gmail.com">Contact Me</a>
                 <a href="https://github.com/JacoboMartinez79" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://www.linkedin.com/in/jacobodev" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="https://blacksandsstudios.itch.io/big-grease" target="_blank" rel="noopener">Itch.io</a>
@@ -184,14 +184,9 @@
         </div>
     </footer>
 
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
-        }
-    }
-    </script>
-    <script src="../SiteScripts/bg-constellation.js?v=9"></script>
-    <script type="module" src="../SiteScripts/hero-boids.js?v=9"></script>
+    <script src="../SiteScripts/email.js?v=10"></script>
+    <script src="../SiteScripts/bg-constellation.js?v=10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="../SiteScripts/hero-boids.js?v=10"></script>
 </body>
 </html>

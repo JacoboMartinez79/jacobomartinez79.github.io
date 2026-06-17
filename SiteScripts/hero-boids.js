@@ -1,18 +1,30 @@
 // Boids hero background. Same flocking model as my AI project.
-import * as THREE from "three";
+// Reads the global THREE (loaded via a plain CDN script), so it works without
+// importmap/module support. If THREE never loads, the plain hero stays.
+(function () {
+    const canvas = document.querySelector(".hero-canvas");
+    if (!canvas) return;
 
-const canvas = document.querySelector(".hero-canvas");
-if (canvas) {
-    try {
-        initBoids(canvas);
-    } catch (err) {
-        // no WebGL? fall back to the plain hero
-        console.warn("Hero boids disabled:", err);
-        canvas.remove();
-    }
-}
+    let tries = 0;
+    (function waitForThree() {
+        if (window.THREE) {
+            const THREE = window.THREE;
+            try {
+                initBoids(canvas, THREE);
+            } catch (err) {
+                canvas.remove(); // no WebGL etc. -> plain hero
+            }
+            return;
+        }
+        if (++tries > 60) {
+            canvas.remove(); // THREE never showed up; give up gracefully
+            return;
+        }
+        setTimeout(waitForThree, 100);
+    })();
+})();
 
-function initBoids(canvas) {
+function initBoids(canvas, THREE) {
     const reducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -84,7 +96,7 @@ function initBoids(canvas) {
     colors.set(baseColors);
     geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
-    const sprite = makeDotTexture();
+    const sprite = makeDotTexture(THREE);
     const material = new THREE.PointsMaterial({
         size: 4.5,
         map: sprite,
@@ -299,7 +311,7 @@ function setMag(x, y, mag) {
 }
 
 // soft round dot so points aren't squares
-function makeDotTexture() {
+function makeDotTexture(THREE) {
     const size = 64;
     const c = document.createElement("canvas");
     c.width = c.height = size;
