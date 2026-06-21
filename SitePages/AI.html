@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=10" />
-    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=10" />
-    <link rel="stylesheet" href="../SiteCSS/effects.css?v=10" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=12" />
+    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=12" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=12" />
     <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
     <title>AI Projects | Jacobo Martinez</title>
 </head>
@@ -35,36 +35,35 @@
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/AI_CoverImage.png" alt="A* path planning visualization" />
+                <a href="../SiteImages/AI_CoverImage.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/AI_CoverImage.png" alt="A* path planning visualization" /></a>
             </div>
             <div class="contribution-title">
                 A* Path Planning Implementation
             </div>
             <div class="contribution-summary">
-                Implemented the A* algorithm for path planning, focusing on:
+                I implemented A* pathfinding over a hex-tile map, the algorithm a unit uses to find the shortest route from one tile to another while avoiding obstacles.
                 <ul>
-                    <li>Building the SearchGraph using the provided TileMap and establishing Hex Tile Adjacency.</li>
-                    <li>Developing and optimizing the A* algorithm to find the most efficient path between nodes.</li>
-                    <li>Testing and comparing the algorithm's performance against other search algorithms.</li>
-                    <li>Ensuring the solution path is optimal and the algorithm performs efficiently under various conditions.</li>
+                    <li>Turned the raw tile map into a searchable graph: each tile became a node, and I worked out the adjacency rules for hex tiles (which has six neighbors instead of a grid's four) so the search knew where it could legally move.</li>
+                    <li>Wrote the A* search itself, using a heuristic to estimate the remaining distance to the goal so it explores promising tiles first and reaches the answer far faster than a blind search.</li>
+                    <li>Validated it against simpler algorithms like BFS on the same maps to confirm A* returned the same optimal path while touching fewer tiles, and tested edge cases like blocked-off goals and tie-breaking between equal-cost routes.</li>
                 </ul>
             </div>
         </div>
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/AI_CoverImage.png" alt="Flocking algorithm simulation" />
+                <a href="../SiteImages/AI_CoverImage.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/AI_CoverImage.png" alt="Flocking algorithm simulation" /></a>
             </div>
             <div class="contribution-title">
                 Flocking Algorithm Implementation
             </div>
             <div class="contribution-summary">
-                Implemented flocking algorithms to simulate realistic group behaviors, including:
+                I built a flocking system, the kind of emergent group movement you see in a flock of birds or a school of fish, where each agent (a "boid") only follows three simple rules but the group as a whole moves believably. (This is the same model running behind the homepage background.)
                 <ul>
-                    <li><strong>Alignment:</strong> Calculated the average velocity of each boid and scaled it to create a unit-length influence vector.</li>
-                    <li><strong>Cohesion:</strong> Created an influence vector from each boid's position to the average position of the flock, scaling it based on distance.</li>
-                    <li><strong>Separation:</strong> Calculated vectors away from nearby boids to avoid collisions, scaling the influence based on proximity.</li>
-                    <li>Combined these behaviors to achieve lifelike flocking movement and tested the implementation for various scenarios.</li>
+                    <li><strong>Alignment:</strong> each boid steers toward the average heading of its nearby neighbors, so the group tends to travel in the same direction.</li>
+                    <li><strong>Cohesion:</strong> each boid steers gently toward the center of its local group, which keeps the flock together instead of scattering.</li>
+                    <li><strong>Separation:</strong> each boid steers away from any neighbor that gets too close, the rule that prevents collisions and gives the flock its spacing.</li>
+                    <li>The interesting part is the blend: I weighted and combined these three competing forces each frame so no single rule dominates, then tuned the weights and neighbor radius until the motion looked natural across different crowd sizes.</li>
                 </ul>
             </div>
         </div>
@@ -73,6 +72,6 @@
             <iframe src="https://www.youtube.com/embed/mxA9RaNDKJ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="AI Projects Demo"></iframe>
         </div>
     </main>
-    <script src="../SiteScripts/bg-constellation.js?v=10"></script>
+    <script src="../SiteScripts/bg-constellation.js?v=12"></script>
 </body>
 </html>

@@ -41,10 +41,9 @@
 .contribution-left {
     padding: 2.5rem 0;
     display: grid;
-    grid-template-areas: 'ctitle cmedia' 'csummary cmedia';
-    grid-template-columns: 58% 42%;
-    grid-template-rows: auto 1fr;
-    column-gap: 3vw;
+    grid-template-areas: 'ctitle' 'cmedia' 'csummary';
+    grid-template-columns: 100%;
+    row-gap: 1.5rem;
     border-bottom: solid var(--border) 1px;
 }
 
@@ -53,36 +52,73 @@
     font-size: clamp(1.3rem, 2.2vw, 1.7rem);
     font-weight: 700;
     letter-spacing: -0.02em;
-    padding-bottom: 1rem;
 }
 
 .contribution-media {
     grid-area: cmedia;
     text-align: center;
-    align-self: start;
 }
+
+    .contribution-media a {
+        display: inline-block;
+        position: relative;
+        max-width: 900px;
+        width: 100%;
+        line-height: 0;
+    }
 
     .contribution-media img {
         width: 100%;
         height: auto;
-        border-radius: 8px;
+        border-radius: 10px;
         border: 1px solid var(--border);
         box-shadow: var(--shadow);
         display: block;
-        margin: 0 auto;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .contribution-media a:hover img {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 6px rgba(60, 55, 48, 0.08), 0 16px 40px rgba(60, 55, 48, 0.16);
+    }
+
+    /* tap/click to view full size hint */
+    .contribution-media a::after {
+        content: "⤢ View full size";
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        line-height: 1;
+        color: #fff;
+        background: rgba(20, 22, 28, 0.7);
+        padding: 0.4em 0.6em;
+        border-radius: 6px;
+        pointer-events: none;
     }
 
 .contribution-summary {
     grid-area: csummary;
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
     font-weight: 400;
-    line-height: 1.7;
+    line-height: 1.75;
+    max-width: 760px;
 }
 
 .contribution-summary strong {
     color: var(--text);
     font-weight: 600;
+}
+
+.contribution-summary code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    background-color: var(--accent-soft);
+    color: var(--text);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
 }
 
 .contribution-summary ul {
@@ -133,18 +169,6 @@
 
 
 @media (max-width: 1023px) {
-
-    .contribution-left {
-        grid-template-areas: 'ctitle' 'cmedia' 'csummary';
-        grid-template-columns: 100%;
-        grid-template-rows: auto auto auto;
-        column-gap: 0;
-        row-gap: 1.2rem;
-    }
-
-    .contribution-title {
-        padding-bottom: 0;
-    }
 
     .additional-video iframe {
         width: 90vw;

@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=10" />
-    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=10" />
-    <link rel="stylesheet" href="../SiteCSS/effects.css?v=10" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=12" />
+    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=12" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=12" />
     <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
     <title>Computer Networks | Jacobo Martinez</title>
 </head>
@@ -35,38 +35,38 @@
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/ComputerNetworks_CoverImage.png" alt="Server implementation diagram" />
+                <a href="../SiteImages/ComputerNetworks_CoverImage.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/ComputerNetworks_CoverImage.png" alt="Server implementation diagram" /></a>
             </div>
             <div class="contribution-title">
                 Server Implementation
             </div>
             <div class="contribution-summary">
-                Developed and implemented the server-side application using C++ and the WinSock API, which included:
+                I built the server side of a real-time chat system in C++ on top of the raw WinSock API, which meant working directly with sockets instead of a higher-level networking library.
                 <ul>
-                    <li>Setting up the server to handle multiple client connections at once, currently capped at 5.</li>
-                    <li>Implementing data serialization and deserialization for efficient network communication. Data is saved to a text file.</li>
-                    <li>Ensuring robust error handling and connection management.</li>
+                    <li>Used a multiplexing model (a single <code>select()</code> loop) so one thread could watch every connected socket at once, accepting new clients and reading incoming messages without blocking. The server holds up to five simultaneous connections and broadcasts each message out to the rest.</li>
+                    <li>Designed a simple serialization format so messages could be packed into a byte buffer to send over the wire and unpacked on the other end, and persisted the chat log to a text file so history survives between sessions.</li>
+                    <li>Handled the messy realities of network code: partial reads, clients dropping without warning, and cleaning up sockets so a single disconnect never takes the whole server down.</li>
                 </ul>
             </div>
         </div>
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/ComputerNetworks_CoverImage.png" alt="Client application interface" />
+                <a href="../SiteImages/ComputerNetworks_CoverImage.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/ComputerNetworks_CoverImage.png" alt="Client application interface" /></a>
             </div>
             <div class="contribution-title">
                 Client Application
             </div>
             <div class="contribution-summary">
-                Created the client-side application with C++ and the WinSock API, focusing on:
+                I wrote the matching client in C++, the program a user actually runs to join the chat and talk to the server.
                 <ul>
-                    <li>Developing a user-friendly interface for clients to connect to the server.</li>
-                    <li>Implementing features for sending and receiving messages in real-time.</li>
-                    <li>Ensuring the client application handles unexpected server disconnections gracefully.</li>
+                    <li>Built a console interface that walks the user through connecting: it asks for the server's IP and port, opens the socket, and gives clear feedback when a connection succeeds or fails.</li>
+                    <li>Implemented real-time messaging by listening for incoming data while still letting the user type, so messages from other clients appear the moment they arrive rather than only after you hit enter.</li>
+                    <li>Made the client fail gracefully when the server goes away mid-session: instead of crashing, it detects the dropped connection, tells the user, and exits cleanly.</li>
                 </ul>
             </div>
         </div>
     </main>
-    <script src="../SiteScripts/bg-constellation.js?v=10"></script>
+    <script src="../SiteScripts/bg-constellation.js?v=12"></script>
 </body>
 </html>

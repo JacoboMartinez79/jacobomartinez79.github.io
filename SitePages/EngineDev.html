@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=10" />
-    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=10" />
-    <link rel="stylesheet" href="../SiteCSS/effects.css?v=10" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=12" />
+    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=12" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=12" />
     <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
     <title>Engine Development | Jacobo Martinez</title>
 </head>
@@ -35,34 +35,34 @@
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/EngineDev_CoverImage.png" alt="Particle system demo" />
+                <a href="../SiteImages/EngineDev_CoverImage.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/EngineDev_CoverImage.png" alt="Particle system demo" /></a>
             </div>
             <div class="contribution-title">
                 Particle System with Sorted and Unsorted Pools
             </div>
             <div class="contribution-summary">
-                Developed a particle system using sorted and unsorted pools, including:
+                I built a particle system, the engine feature behind effects like fire, smoke, and sparks, designed to handle thousands of short-lived particles without allocating memory every frame.
                 <ul>
-                    <li>Implemented a free list allocator for managing particle memory efficiently.</li>
-                    <li>Created a sorted pool for active particles and an unsorted pool for free particles.</li>
-                    <li>Designed an emitter system to spawn and update particles with gravity and color interpolation.</li>
+                    <li>Wrote a free-list allocator that pre-reserves a fixed block of particles up front. Spawning and killing a particle just moves it between lists instead of asking the OS for memory, which avoids the stutter that constant allocation would cause.</li>
+                    <li>Split particles into two pools, a sorted pool of live particles that get drawn in order and an unsorted pool of free slots ready to reuse, so the hot path of updating and rendering only ever touches the particles that are actually alive.</li>
+                    <li>Built an emitter that spawns particles with configurable behavior: gravity pulling them down over their lifetime, and color interpolation so they smoothly fade or shift color as they age.</li>
                 </ul>
             </div>
         </div>
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/EngineDev_CoverImage.png" alt="Matrix transformations and 3D rendering" />
+                <a href="../SiteImages/EngineDev_CoverImage.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/EngineDev_CoverImage.png" alt="Matrix transformations and 3D rendering" /></a>
             </div>
             <div class="contribution-title">
                 Matrix Transformations and Rendering
             </div>
             <div class="contribution-summary">
-                Developed and integrated matrix transformations for rendering, including:
+                I implemented the matrix math that powers 3D rendering, the transformations that take a model's local coordinates and figure out where they end up on your screen.
                 <ul>
-                    <li>Implemented functions for matrix multiplication, inversion, and other transformations.</li>
-                    <li>Utilized DirectX 11 for rendering 3D objects with dynamic camera controls.</li>
-                    <li>Created a grid rendering system to visualize transformations and camera movements.</li>
+                    <li>Wrote the core linear algebra by hand: matrix multiplication, inversion, and the world/view/projection transforms, rather than leaning on a library, so I understood exactly what each step was doing to the geometry.</li>
+                    <li>Rendered 3D objects through DirectX 11 with a movable camera, feeding the transformation matrices to the GPU each frame so the scene updates as the camera moves.</li>
+                    <li>Added a grid floor as a visual reference, which made it easy to see and debug whether the transformations and camera movement were actually behaving correctly.</li>
                 </ul>
             </div>
         </div>
@@ -74,6 +74,6 @@
             <iframe src="https://www.youtube.com/embed/PwCFwrBOros" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Engine Development Demo 2"></iframe>
         </div>
     </main>
-    <script src="../SiteScripts/bg-constellation.js?v=10"></script>
+    <script src="../SiteScripts/bg-constellation.js?v=12"></script>
 </body>
 </html>

@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=10" />
-    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=10" />
-    <link rel="stylesheet" href="../SiteCSS/effects.css?v=10" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=12" />
+    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=12" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=12" />
     <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
     <title>wxWidgets Projects | Jacobo Martinez</title>
 </head>
@@ -35,34 +35,34 @@
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/wxWidgets_CoverGIF.gif" alt="Conway's Game of Life simulation" />
+                <a href="../SiteImages/wxWidgets_CoverGIF.gif" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/wxWidgets_CoverGIF.gif" alt="Conway's Game of Life simulation" /></a>
             </div>
             <div class="contribution-title">
                 Windows Forms: Game of Life
             </div>
             <div class="contribution-summary">
-                Generalist Programmer
+                A C# Windows Forms build of Conway's Game of Life, a classic cellular-automaton simulation where a grid of cells lives or dies each step based on how many neighbors it has, producing surprisingly complex patterns from a few simple rules.
                 <ul>
-                    <li>Programmed the cellular automata logic of the simulation in C#.</li>
-                    <li>Implemented and managed the settings system for the simulation.</li>
-                    <li>Developed the user interface, including the HUD and dynamic grid.</li>
+                    <li>Programmed the core simulation logic: each generation, I count every cell's living neighbors and apply Conway's rules to decide what the next grid looks like.</li>
+                    <li>Built a settings system so the user can change things like grid size and simulation speed, and persist those preferences.</li>
+                    <li>Developed the UI, including a HUD showing stats like the current generation and a grid that redraws itself as the simulation runs.</li>
                 </ul>
             </div>
         </div>
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <img src="../SiteImages/wxWidgets_CoverGIF.gif" alt="wxWidgets calculator application" />
+                <a href="../SiteImages/wxWidgets_CoverGIF.gif" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/wxWidgets_CoverGIF.gif" alt="wxWidgets calculator application" /></a>
             </div>
             <div class="contribution-title">
                 wxWidgets Calculator
             </div>
             <div class="contribution-summary">
-                Developed a calculator application using wxWidgets in C++, including:
+                A desktop calculator in C++ with wxWidgets, where I used the build as a chance to apply a proper design pattern rather than just wiring buttons to math.
                 <ul>
-                    <li>Designed and implemented the user interface for the calculator.</li>
-                    <li>Programmed core arithmetic functionality using the command pattern via interfaces.</li>
-                    <li>Resolved circular dependencies by carefully managing header includes and class dependencies.</li>
+                    <li>Designed and built the calculator's interface, the button grid, display, and input handling, with wxWidgets.</li>
+                    <li>Structured the arithmetic with the command pattern: each operation is its own object behind a shared interface, which keeps the logic organized and makes it straightforward to add new operations or support features like undo.</li>
+                    <li>Worked through the circular dependency problems that come with C++ headers, untangling the includes so classes that reference each other still compile cleanly.</li>
                 </ul>
             </div>
         </div>
@@ -71,6 +71,6 @@
             <iframe src="https://www.youtube.com/embed/osaT2mWBpXI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="wxWidgets Projects Demo"></iframe>
         </div>
     </main>
-    <script src="../SiteScripts/bg-constellation.js?v=10"></script>
+    <script src="../SiteScripts/bg-constellation.js?v=12"></script>
 </body>
 </html>
