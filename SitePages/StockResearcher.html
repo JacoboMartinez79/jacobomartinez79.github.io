@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StockResearcher | Jacobo Martinez">
+    <meta name="author" content="Jacobo Martinez">
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Jacobo Martinez" />
+    <meta property="og:title" content="StockResearcher — Jacobo Martinez" />
+    <meta property="og:description" content="An ML stock analysis platform: a PyTorch ensemble over ~120 features, a macro regime classifier, options analytics, and screeners." />
+    <meta property="og:url" content="https://jacobomartinez79.github.io/SitePages/StockResearcher.html" />
+    <meta property="og:image" content="https://jacobomartinez79.github.io/SiteImages/StockResearcher_Dashboard.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="StockResearcher — Jacobo Martinez" />
+    <meta name="twitter:description" content="An ML stock analysis platform: a PyTorch ensemble over ~120 features, a macro regime classifier, options analytics, and screeners." />
+    <meta name="twitter:image" content="https://jacobomartinez79.github.io/SiteImages/StockResearcher_Dashboard.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=13" />
+    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=13" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=13" />
+    <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <title>StockResearcher | Jacobo Martinez</title>
+</head>
+<body>
+    <canvas class="bg-constellation" aria-hidden="true"></canvas>
+    <header class="header">
+        <div class="header-title">
+            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
+            <a href="Homepage.html">Jacobo Martinez</a>
+        </div>
+        <nav class="header-buttons">
+            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
+            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
+            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
+            <div class="header-button"><a href="Homepage.html#Contact">Contact</a></div>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="title">StockResearcher</div>
+        <div class="project-type">Python · FastAPI · PyTorch | React · TypeScript | MongoDB</div>
+        <div class="contributions">List of Contributions:</div>
+
+        <div class="contribution-left">
+            <div class="contribution-media">
+                <a href="../SiteImages/StockResearcher_Dashboard.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Dashboard.png" alt="StockResearcher picks dashboard ranking stocks by model confidence" /></a>
+            </div>
+            <div class="contribution-title">
+                The Model and the Pick Engine
+            </div>
+            <div class="contribution-summary">
+                StockResearcher is a stock analysis platform I built end to end. At its center is a neural network that ranks NYSE and NASDAQ stocks by how likely each one is to outperform SPY or QQQ over a set horizon, wrapped in a React front end sitting on a FastAPI backend.
+                <ul>
+                    <li>Trained a three-layer network (256 to 128 to 64, with dropout and batch normalization) on roughly 120 features per stock: price technicals, fundamentals, earnings, sentiment, sector, and macro series like VIX, yields, credit spreads and market breadth. Every prediction is the average of a five-model bagged ensemble rather than one network's opinion.</li>
+                    <li>Trained separate models per benchmark and per horizon, SPY and QQQ across 20 trading days and one year, so that "outperform what, over how long" is always answered by a model actually trained on that question instead of one general model stretched to cover all four.</li>
+                    <li>Built the daily pipeline feeding it: ingestion for prices, fundamentals, sentiment and put/call data into MongoDB, label generation against each benchmark, the feature matrix build, training, and prediction, all chained into a single scheduled run.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contribution-left">
+            <div class="contribution-media">
+                <a href="../SiteImages/StockResearcher_Performance.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Performance.png" alt="Model performance page reporting a 48.7 percent win rate, below baseline" /></a>
+            </div>
+            <div class="contribution-title">
+                Measuring the Model Honestly
+            </div>
+            <div class="contribution-summary">
+                The piece of this project I am most glad I built is the page whose entire job is to tell you how much to trust the picks, including when the honest answer is "not much."
+                <ul>
+                    <li>Scored every historical prediction against what the stock actually did afterward, 731,887 held-out samples across a year, and put the resulting win rate directly in the interface instead of leaving it in a notebook where only I would ever see it.</li>
+                    <li>The finding is stated plainly in the product: the 1-year models carry a real edge, with top picks beating the benchmark roughly 69 to 74% of the time against a base rate near 36 to 41%, while the 20-day models land around 48 to 51% against a base rate near 44 to 46%. That second number is a slight edge at best, and the picks page says so in a banner above the picks themselves rather than burying it.</li>
+                    <li>Broke accuracy down by month and by sector, so a mediocre headline number can be traced to where it actually comes from instead of being averaged into meaninglessness.</li>
+                </ul>
+                It is a research tool, not financial advice, and the app is built to keep saying so.
+            </div>
+        </div>
+
+        <div class="contribution-left">
+            <div class="contribution-media">
+                <a href="../SiteImages/StockResearcher_TickerDetail.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_TickerDetail.png" alt="Per-ticker research view with price history, moving averages, and model signal" /></a>
+            </div>
+            <div class="contribution-title">
+                Per-Ticker Research View
+            </div>
+            <div class="contribution-summary">
+                Every ticker gets its own page, so a name from the picks list can be inspected instead of taken on faith.
+                <ul>
+                    <li>Price history over selectable windows with the 21, 50 and 200-day exponential moving averages drawn over it, plus the option to overlay SPY or QQQ to see whether a move belonged to the stock or to the whole market.</li>
+                    <li>The model's current signal and confidence for that specific ticker, alongside the ordinary numbers a reader expects: open, high, low, volume, and the moving averages as values rather than only as lines on a chart.</li>
+                    <li>An on-demand prediction that re-runs the model against current data rather than showing the last scheduled batch, plus price alerts for a level worth watching.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contribution-left">
+            <div class="contribution-media">
+                <a href="../SiteImages/StockResearcher_Macro.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Macro.png" alt="Macro dashboard classifying the current market regime" /></a>
+            </div>
+            <div class="contribution-title">
+                Macro Regime Dashboard
+            </div>
+            <div class="contribution-summary">
+                A stock pick means something different in a calm market than in a deteriorating one, so I built a second, separate model whose only job is to describe the environment the picks are being made in.
+                <ul>
+                    <li>A logistic regression classifies the current market regime from CPI, GDP, credit spreads, market breadth, the Fed rate and the dollar, then names it in one word at the top of the page with the numbers that drove the call sitting directly underneath.</li>
+                    <li>A froth score built from six independent signals, showing not just the total but which specific signals are firing, so a reader can disagree with the score by looking at its inputs.</li>
+                    <li>Grouped the underlying series into tabs covering markets, sectors and positioning, the economy, and smart money, so the page opens with one clear answer and lets you dig only if you want to.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contribution-left">
+            <div class="contribution-media">
+                <a href="../SiteImages/StockResearcher_Options.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Options.png" alt="Options chain with implied volatility and probability of expiring in the money" /></a>
+            </div>
+            <div class="contribution-title">
+                Options Chain and Probabilities
+            </div>
+            <div class="contribution-summary">
+                A full options viewer for the major indices and large caps, built because the chain data was already flowing in to feed the model's put/call features.
+                <ul>
+                    <li>The complete chain by expiry with bid, ask, implied volatility, volume and open interest on both the call and put side, filterable by days to expiry and by distance from the money so the table stays readable.</li>
+                    <li>A Monte Carlo simulation estimating the probability that each strike finishes in the money, shown per row, which turns a wall of numbers into the question a reader actually has.</li>
+                    <li>Summary figures that frame the chain before you read it: at-the-money implied volatility, the put/call ratio with its bullish or bearish reading, and the max pain strike.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contribution-left">
+            <div class="contribution-media">
+                <a href="../SiteImages/StockResearcher_UnusualVolume.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_UnusualVolume.png" alt="Volume spike screener listing small caps trading at multiples of average volume" /></a>
+                <a href="../SiteImages/StockResearcher_SmallCaps.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_SmallCaps.png" alt="Value and momentum screener for lower priced stocks" /></a>
+            </div>
+            <div class="contribution-title">
+                Screeners
+            </div>
+            <div class="contribution-summary">
+                A set of screeners that cut the same underlying data by different questions, all served from the predictions and market data already sitting in MongoDB.
+                <ul>
+                    <li>An unusual volume screener that finds stocks trading at a multiple of their own average volume, paired with short interest, days to cover and a squeeze score, since a volume spike in a heavily shorted small cap means something quite different from one in a quiet large cap.</li>
+                    <li>A value and momentum screener that filters on price, price-to-book and price-to-earnings, then requires at least one momentum signal to fire, and reports how many of the five it checks are actually firing rather than reducing it to a single verdict.</li>
+                    <li>Every row carries the model's own confidence next to the screen's criteria, so a stock that passes a mechanical filter but the model dislikes is visibly both of those things at once.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contribution-left">
+            <div class="contribution-media">
+                <a href="../SiteImages/StockResearcher_Sectors.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Sectors.png" alt="Sector breakdown of buy picks grouped by sector" /></a>
+            </div>
+            <div class="contribution-title">
+                Sector Breakdown and Concentration Warnings
+            </div>
+            <div class="contribution-summary">
+                A model that likes one sector will hand you a list that looks like seven ideas and behaves like one. This view exists to make that visible.
+                <ul>
+                    <li>Groups every BUY pick by sector and ranks the sectors by average model confidence, showing what share of the total each one represents, which is how you notice that a majority of the picks are sitting in a single sector.</li>
+                    <li>Runs a basket check on the picks page itself, estimating how many genuinely independent bets a set of top picks actually represents and warning when the answer is smaller than the number of tickers.</li>
+                    <li>Surfaces the lower-confidence names inside each sector separately, so a sector's story is not told only by whichever ticker happened to rank highest.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contribution-left">
+            <div class="contribution-media">
+                <a href="../SiteImages/StockResearcher_EtfFinder.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_EtfFinder.png" alt="ETF finder comparing funds by assets, return, and expense ratio" /></a>
+            </div>
+            <div class="contribution-title">
+                ETF Finder
+            </div>
+            <div class="contribution-summary">
+                A browser for funds rather than individual names, for the case where the answer to "what should I look at" is not a single stock.
+                <ul>
+                    <li>Organized by theme and sortable by assets under management, year-to-date and three-year return, volume, or expense ratio, with the benchmark's own returns pinned above the results so every number has something to be compared against.</li>
+                    <li>Each fund card carries its assets, three-year return, expense ratio and largest holdings, along with how it performed relative to SPY, which is usually the number that decides whether a fund was worth its fee.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contribution-left">
+            <div class="contribution-title">
+                Backend, Authentication, and Hardening
+            </div>
+            <div class="contribution-summary">
+                Putting a project like this on the public internet turned out to be its own body of work, separate from the modeling.
+                <ul>
+                    <li>Built the API as a set of routers over an async MongoDB driver, with the React build served by the same FastAPI process in production, so a deployment is one service rather than two things that have to agree with each other.</li>
+                    <li>Implemented authentication with short-lived access tokens held in memory and refresh tokens in HTTP-only cookies, which keeps a stolen token useful for minutes rather than days and keeps it out of reach of scripts running on the page.</li>
+                    <li>Added layered protection against automated traffic: per-endpoint rate limiting, a reputation system that scores IP addresses and escalates from slowing a client down to temporary and then longer bans, honeypot endpoints only a scraper would ever call, and the standard set of security headers.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <script src="../SiteScripts/bg-constellation.js?v=13"></script>
+    <script src="../SiteScripts/lightbox.js?v=13"></script>
+</body>
+</html>
