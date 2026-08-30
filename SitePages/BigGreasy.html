@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Big Greasy Capstone Project | Jacobo Martinez">
     <meta name="author" content="Jacobo Martinez">
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Jacobo Martinez" />
+    <meta property="og:title" content="Big Greasy — Jacobo Martinez" />
+    <meta property="og:description" content="VR capstone built in Unity: level design, an event-driven UI, and the Rat Race minigame." />
+    <meta property="og:url" content="https://jacobomartinez79.github.io/SitePages/BigGreasy.html" />
+    <meta property="og:image" content="https://jacobomartinez79.github.io/SiteImages/TVChannel.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Big Greasy — Jacobo Martinez" />
+    <meta name="twitter:description" content="VR capstone built in Unity: level design, an event-driven UI, and the Rat Race minigame." />
+    <meta name="twitter:image" content="https://jacobomartinez79.github.io/SiteImages/TVChannel.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
@@ -63,6 +75,24 @@
                     <li>Creating interactions between the player and the world using an event-driven interface that avoids constant polling in the Update function.</li>
                     <li>Developing dynamic UI elements that provide information to the player about interactable objects.</li>
                     <li>Building the Rat Race UI, which was the highlight of this project. Coordinating between a UI Manager, the RaceTrack script (which determines race start and winner), and the RatMenu script (which manages player money) took careful system design, and it was the most rewarding work I did here.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contribution-left">
+            <div class="contribution-media">
+                <a href="../SiteImages/IceHaunt.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/IceHaunt.png" alt="In-game HUD during an ice haunting event, showing the fear meter, order ticket, and shift clock" /></a>
+            </div>
+            <div class="contribution-title">
+                In-Game HUD and Order System
+            </div>
+            <div class="contribution-summary">
+                Beyond the Rat Race menu, I built the heads-up display the player actually reads while working the shift. This shot catches it mid-haunting, with one of the game's ice events creeping in over the restaurant.
+                <ul>
+                    <li>A persistent shift readout in the corner showing the day of the week, the in-game clock, and your current money, so you always know how deep into the night you are and how close you are to making rent.</li>
+                    <li>Order information split across two surfaces: the active order on the kitchen monitor and the ingredient breakdown off to the side, so the player can read what to build without pausing or opening a menu, which matters a lot in VR.</li>
+                    <li>A Next/Previous carousel for cycling through selectable items, with the row of slots showing what is available at a glance instead of hiding it behind a submenu.</li>
+                    <li>A fear meter pinned to the top of the screen that surfaces the player's state during the supernatural events, turning something that would otherwise be pure atmosphere into feedback the player can actually read and react to.</li>
                 </ul>
             </div>
         </div>
