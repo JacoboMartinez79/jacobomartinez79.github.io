@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Computer Graphics Projects | Jacobo Martinez">
     <meta name="author" content="Jacobo Martinez">
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Jacobo Martinez" />
+    <meta property="og:title" content="Graphics Projects — Jacobo Martinez" />
+    <meta property="og:description" content="2D rendering from scratch and 3D cube rendering with DirectX 11 and Gateware." />
+    <meta property="og:url" content="https://jacobomartinez79.github.io/SitePages/Graphics.html" />
+    <meta property="og:image" content="https://jacobomartinez79.github.io/SiteImages/CubeProjectImage.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Graphics Projects — Jacobo Martinez" />
+    <meta name="twitter:description" content="2D rendering from scratch and 3D cube rendering with DirectX 11 and Gateware." />
+    <meta name="twitter:image" content="https://jacobomartinez79.github.io/SiteImages/CubeProjectImage.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
@@ -35,31 +47,17 @@
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <a href="../SiteImages/Graphics_CoverGIF.gif" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/Graphics_CoverGIF.gif" alt="Sprite rendering and blitting demo" /></a>
+                <a href="../SiteImages/Graphics_CoverGIF.gif" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/Graphics_CoverGIF.gif" alt="Sprite rendering, blitting, and animation demo" /></a>
             </div>
             <div class="contribution-title">
-                Sprite Rendering and Blitting
+                Sprite Rendering, Blitting, and Animation
             </div>
             <div class="contribution-summary">
-                I built 2D rendering from scratch in C++, drawing images to the screen one pixel at a time without a graphics library doing the work for me.
+                I built 2D rendering from scratch in C++, drawing images to the screen one pixel at a time without a graphics library doing the work for me, then used it to put together an actual animated scene to prove the system worked in practice.
                 <ul>
-                    <li>The screen is really a 1D array of pixels, so I wrote the indexing math to map an (x, y) coordinate to the right spot in that array, the foundation everything else is drawn on.</li>
+                    <li>The screen is really a 1D array of pixels, so I wrote the indexing math to map an (x, y) coordinate to the right spot in that array, with (0, 0) sitting at the top-left corner of the screen. That mapping is the foundation everything else is drawn on.</li>
                     <li>Implemented alpha blending so sprites with transparency layer correctly over what's already on screen, mixing each pixel's color by its opacity instead of drawing a hard rectangle.</li>
                     <li>Wrote and optimized the blit routine that copies a sprite's pixels onto the screen buffer, which is the per-frame hot path, so it had to stay fast.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="contribution-left">
-            <div class="contribution-media">
-                <a href="../SiteImages/image.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/image.png" alt="Sprite animation and environment setup" /></a>
-            </div>
-            <div class="contribution-title">
-                Environment Setup and Sprite Animation
-            </div>
-            <div class="contribution-summary">
-                Building on the sprite renderer, I put together an actual animated scene to prove the system worked in practice.
-                <ul>
                     <li>Created a tiled background by repeating a single grass texture across the whole screen, the standard trick for filling a large area cheaply from one small image.</li>
                     <li>Scattered tree sprites at randomized positions so the environment looked organic instead of laid out on an obvious grid.</li>
                     <li>Wrote a small animation system that cycles through a sequence of fire frames on a timer, turning a set of still images into a looping flame effect.</li>
@@ -80,6 +78,24 @@
                     <li>Wrote vertex and pixel shaders, the small programs that run on the GPU to position each corner of the cube and decide the color of every pixel it covers.</li>
                     <li>Set up a constant buffer to hand the world, view, and projection matrices to the GPU each frame, which is how the CPU tells the shaders where the camera is and how the scene should be projected onto the screen.</li>
                     <li>Built a camera system with movement controls so you can navigate around the cube in 3D space, and used Gateware to handle the window and keyboard input.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contribution-left">
+            <div class="contribution-media">
+                <a href="../SiteImages/LevelRenderer.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/LevelRenderer.png" alt="Level renderer drawing an instanced gothic bridge scene in DirectX 11" /></a>
+            </div>
+            <div class="contribution-title">
+                Data-Oriented Level Renderer with GPU Instancing
+            </div>
+            <div class="contribution-summary">
+                My most recent graphics project: a renderer that takes a level built in Blender and exported to a text file, which lists every object in the scene and the matrix describing where it sits, and draws the whole thing in DirectX 11.
+                <ul>
+                    <li>Wrote the parser that walks the level file and resolves each entry to a mesh on disk. The level places 76 objects but only uses 13 unique models, so I keyed models by filename and let repeated placements pile up as instances on one entry, which loads each piece of geometry once instead of 76 times.</li>
+                    <li>Laid the data out for the GPU rather than for the object graph: all 34,344 vertices and 65,736 indices are concatenated into a single vertex buffer and a single index buffer, with each model recording where its own slice begins. Every draw call then points into its region of that shared memory instead of binding new buffers.</li>
+                    <li>Drew the level with GPU instancing, one <code>DrawIndexedInstanced</code> per sub-mesh that renders every copy of that model at once, so nine floor tiles cost one call instead of nine. The instance ID restarts at zero on each call, so I upload a per-draw base offset that lets each instance find its own matrix inside the shared 76-entry transform array.</li>
+                    <li>Compiled the shaders at runtime and injected the array sizes as compile-time macros taken from the actual buffer sizes, so the arrays the shader declares can never silently disagree with what the CPU uploads to them.</li>
                 </ul>
             </div>
         </div>
