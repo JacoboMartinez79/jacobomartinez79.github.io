@@ -1,4 +1,7 @@
+/* ===== Theme tokens ===== */
 :root {
+    color-scheme: light;
+
     --bg: #ece9e4;            /* off-white */
     --bg-elev: #ffffff;       /* cards (crisp white to lift off the page) */
     --text: #2a2d33;
@@ -10,9 +13,76 @@
     --border: #d8d2c8;
     --border-strong: #c2bbae;
     --shadow: 0 1px 3px rgba(60, 55, 48, 0.06), 0 10px 28px rgba(60, 55, 48, 0.12);
+    --shadow-lift: 0 2px 6px rgba(60, 55, 48, 0.06), 0 16px 40px rgba(60, 55, 48, 0.12);
     --radius: 14px;
 
+    /* footer keeps its own near-black in both themes */
+    --footer-bg: #11131a;
+    --footer-ridge: #1c2030;
+    --footer-text: #f4f5f7;
+    --footer-muted: #b9bfcc;
+    --footer-dim: #7d8494;
+
+    /* consumed by the canvas scripts via getComputedStyle */
+    --canvas-node: 70, 113, 230;
+    --canvas-line: 90, 100, 120;
+    --boid-bg: #ece9e4;
+    --boid-base: #8a8f99;
+    --boid-accent: #4671e6;
+    --hero-fade: 236, 233, 228;
+
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Dark palette. Same tokens, different values - nothing below this needs to know. */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
+
+        --bg: #14161b;
+        --bg-elev: #1b1e26;
+        --text: #e7e9ee;
+        --text-muted: #9aa2b1;
+        --text-hover: #93b0ff;
+        --accent: #7a9aff;
+        --accent-hover: #9db4ff;
+        --accent-soft: rgba(122, 154, 255, 0.14);
+        --border: #2a2f39;
+        --border-strong: #3c4350;
+        --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.45);
+        --shadow-lift: 0 2px 6px rgba(0, 0, 0, 0.45), 0 16px 40px rgba(0, 0, 0, 0.55);
+
+        --canvas-node: 122, 154, 255;
+        --canvas-line: 118, 130, 152;
+        --boid-bg: #14161b;
+        --boid-base: #6b7382;
+        --boid-accent: #7a9aff;
+        --hero-fade: 20, 22, 27;
+    }
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --bg: #14161b;
+    --bg-elev: #1b1e26;
+    --text: #e7e9ee;
+    --text-muted: #9aa2b1;
+    --text-hover: #93b0ff;
+    --accent: #7a9aff;
+    --accent-hover: #9db4ff;
+    --accent-soft: rgba(122, 154, 255, 0.14);
+    --border: #2a2f39;
+    --border-strong: #3c4350;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 10px 28px rgba(0, 0, 0, 0.45);
+    --shadow-lift: 0 2px 6px rgba(0, 0, 0, 0.45), 0 16px 40px rgba(0, 0, 0, 0.55);
+
+    --canvas-node: 122, 154, 255;
+    --canvas-line: 118, 130, 152;
+    --boid-bg: #14161b;
+    --boid-base: #6b7382;
+    --boid-accent: #7a9aff;
+    --hero-fade: 20, 22, 27;
 }
 
 html {
@@ -106,6 +176,19 @@ a:hover {
         background-color: var(--accent-soft);
     }
 
+    .header-button a[aria-current] {
+        color: var(--accent);
+        background-color: var(--accent-soft);
+        font-weight: 600;
+    }
+
+/* Headings are styled by class; the tags are here for structure, not defaults. */
+h1, h2, h3 {
+    margin: 0;
+    font-weight: inherit;
+    font-size: inherit;
+}
+
 /* ===== Hero ===== */
 .hero {
     padding: 9vh 0 8vh 0;
@@ -177,6 +260,7 @@ a:hover {
 /* ===== Section label ===== */
 .section-label {
     font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+    line-height: 1.65;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-weight: 700;
@@ -205,7 +289,7 @@ a:hover {
 
 .project-section:hover {
     transform: translateY(-3px);
-    box-shadow: 0 2px 6px rgba(60, 55, 48, 0.06), 0 16px 40px rgba(60, 55, 48, 0.12);
+    box-shadow: var(--shadow-lift);
     border-color: var(--border-strong);
 }
 
@@ -316,8 +400,8 @@ a:hover {
 .site-footer {
     position: relative;
     margin-top: 10vh;
-    background-color: #11131a;
-    color: #f4f5f7;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     overflow: hidden;
 }
 
@@ -334,11 +418,11 @@ a:hover {
 }
 
 .footer-silhouette .ridge-back {
-    fill: #1c2030;
+    fill: var(--footer-ridge);
 }
 
 .footer-silhouette .ridge-front {
-    fill: #11131a;
+    fill: var(--footer-bg);
 }
 
 .footer-content {
@@ -367,7 +451,7 @@ a:hover {
 
 .footer-text {
     font-size: 1.05rem;
-    color: #b9bfcc;
+    color: var(--footer-muted);
     max-width: 34rem;
     margin: 0 auto 2rem auto;
     line-height: 1.7;
@@ -395,7 +479,7 @@ a:hover {
 .footer-links a:hover {
     border-color: var(--accent);
     color: #fff;
-    background-color: rgba(59, 108, 255, 0.18);
+    background-color: var(--accent-soft);
     transform: translateY(-1px);
 }
 
@@ -413,7 +497,77 @@ a:hover {
 .footer-copyright {
     margin-top: 3vh;
     font-size: 0.85rem;
-    color: #7d8494;
+    color: var(--footer-dim);
+}
+
+
+/* ===== Theme toggle ===== */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-left: 0.35rem;
+    padding: 0;
+    border-radius: 999px;
+    border: 1.5px solid var(--border-strong);
+    background-color: var(--bg-elev);
+    color: var(--text-muted);
+    cursor: pointer;
+    flex: 0 0 auto;
+    transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.theme-toggle svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+}
+
+/* show the mode you would switch to */
+.theme-toggle .icon-to-light { display: none; }
+.theme-toggle .icon-to-dark { display: block; }
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .icon-to-dark { display: none; }
+    :root:not([data-theme="light"]) .theme-toggle .icon-to-light { display: block; }
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-to-dark { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-to-light { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-to-dark { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-to-light { display: none; }
+
+/* visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* skip link for keyboard and screen-reader users */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 0.7rem 1.2rem;
+    background-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+    left: 0;
+    color: #fff;
 }
 
 

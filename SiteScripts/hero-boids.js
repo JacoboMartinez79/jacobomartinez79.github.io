@@ -29,10 +29,16 @@ function initBoids(canvas, THREE) {
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    const COLOR_BG = 0xece9e4;
-    const COLOR_BASE = new THREE.Color(0x8a8f99);   // slate
-    const COLOR_ACCENT = new THREE.Color(0x4671e6); // accent blue
-    const bgColor = new THREE.Color(COLOR_BG);
+    // colors come from the CSS theme tokens so the hero follows light/dark
+    function token(name, fallback) {
+        const v = getComputedStyle(document.documentElement)
+            .getPropertyValue(name).trim();
+        return v || fallback;
+    }
+
+    const COLOR_BASE = new THREE.Color(token("--boid-base", "#8a8f99"));
+    const COLOR_ACCENT = new THREE.Color(token("--boid-accent", "#4671e6"));
+    const bgColor = new THREE.Color(token("--boid-bg", "#ece9e4"));
     const FADE_MARGIN = 14; // world units near each edge where boids fade
 
     const renderer = new THREE.WebGLRenderer({
@@ -42,7 +48,7 @@ function initBoids(canvas, THREE) {
         powerPreference: "low-power",
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(COLOR_BG, 0);
+    renderer.setClearColor(bgColor, 0);
 
     const scene = new THREE.Scene();
 
@@ -87,12 +93,28 @@ function initBoids(canvas, THREE) {
     // colors is what's drawn each frame, faded toward the bg near the edges.
     const baseColors = new Float32Array(COUNT * 3);
     const colors = new Float32Array(COUNT * 3);
-    for (let i = 0; i < COUNT; i++) {
-        const c = COLOR_BASE.clone().lerp(COLOR_ACCENT, Math.random() * 0.7);
-        baseColors[i * 3 + 0] = c.r;
-        baseColors[i * 3 + 1] = c.g;
-        baseColors[i * 3 + 2] = c.b;
+    // keep each boid's mix so the palette can be rebuilt on a theme change
+    const mixes = new Float32Array(COUNT);
+    for (let i = 0; i < COUNT; i++) mixes[i] = Math.random() * 0.7;
+
+    function buildBaseColors() {
+        for (let i = 0; i < COUNT; i++) {
+            const c = COLOR_BASE.clone().lerp(COLOR_ACCENT, mixes[i]);
+            baseColors[i * 3 + 0] = c.r;
+            baseColors[i * 3 + 1] = c.g;
+            baseColors[i * 3 + 2] = c.b;
+        }
     }
+    buildBaseColors();
+
+    document.addEventListener("themechange", () => {
+        COLOR_BASE.set(token("--boid-base", "#8a8f99"));
+        COLOR_ACCENT.set(token("--boid-accent", "#4671e6"));
+        bgColor.set(token("--boid-bg", "#ece9e4"));
+        renderer.setClearColor(bgColor, 0);
+        buildBaseColors();
+        geometry.attributes.color.needsUpdate = true;
+    });
     colors.set(baseColors);
     geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 

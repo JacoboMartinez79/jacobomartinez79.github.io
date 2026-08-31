@@ -20,38 +20,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=13" />
-    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=13" />
-    <link rel="stylesheet" href="../SiteCSS/effects.css?v=13" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=14" />
+    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=14" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=14" />
     <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <script>(function(){try{var t=localStorage.getItem("jm-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
     <title>AI Projects | Jacobo Martinez</title>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <canvas class="bg-constellation" aria-hidden="true"></canvas>
     <header class="header">
         <div class="header-title">
-            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
-            <a href="Homepage.html">Jacobo Martinez</a>
+            <img src="../SiteImages/logo.webp" alt="Jacobo Martinez logo" width="96" height="96" decoding="async" />
+            <a href="../index.html">Jacobo Martinez</a>
         </div>
         <nav class="header-buttons">
-            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
-            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
-            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
-            <div class="header-button"><a href="Homepage.html#Contact">Contact</a></div>
+            <div class="header-button"><a href="../index.html">Homepage</a></div>
+            <div class="header-button"><a href="../index.html#Projects" aria-current="page">Projects</a></div>
+            <div class="header-button"><a href="../index.html#AboutMe">About Me</a></div>
+            <div class="header-button"><a href="../index.html#Contact">Contact</a></div>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+                <svg class="icon-to-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                <svg class="icon-to-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+            </button>
         </nav>
     </header>
-    <main class="main">
-        <div class="title">Artificial Intelligence Projects</div>
+    <main class="main" id="main">
+        <a class="back-link" href="../index.html#Projects">&#8592; All projects</a>
+        <h1 class="title">Artificial Intelligence Projects</h1>
         <div class="project-type">C# | C++</div>
-        <div class="contributions">List of Contributions:</div>
+        <h2 class="contributions">List of Contributions:</h2>
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <a href="../SiteImages/AI_CoverImage.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/AI_CoverImage.png" alt="A* path planning visualization" /></a>
+                <a href="../SiteImages/AI_CoverImage.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/AI_CoverImage.webp" alt="A* path planning visualization" width="1054" height="780" decoding="async" fetchpriority="high" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 A* Path Planning Implementation
-            </div>
+            </h3>
             <div class="contribution-summary">
                 I implemented A* pathfinding over a hex-tile map, the algorithm a unit uses to find the shortest route from one tile to another while avoiding obstacles.
                 <ul>
@@ -62,13 +69,13 @@
             </div>
         </div>
 
-        <div class="contribution-left">
+        <div class="contribution-left is-flipped">
             <div class="contribution-media">
-                <a href="../SiteImages/AI_CoverImage.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/AI_CoverImage.png" alt="Flocking algorithm simulation" /></a>
+                <a href="../SiteImages/AI_CoverImage.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/AI_CoverImage.webp" alt="Flocking algorithm simulation" width="1054" height="780" loading="lazy" decoding="async" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 Flocking Algorithm Implementation
-            </div>
+            </h3>
             <div class="contribution-summary">
                 I built a flocking system, the kind of emergent group movement you see in a flock of birds or a school of fish, where each agent (a "boid") only follows three simple rules but the group as a whole moves believably. (This is the same model running behind the homepage background.)
                 <ul>
@@ -84,7 +91,8 @@
             <iframe src="https://www.youtube.com/embed/mxA9RaNDKJ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="AI Projects Demo"></iframe>
         </div>
     </main>
-    <script src="../SiteScripts/bg-constellation.js?v=13"></script>
-    <script src="../SiteScripts/lightbox.js?v=13"></script>
+    <script src="../SiteScripts/theme.js?v=14"></script>
+    <script src="../SiteScripts/bg-constellation.js?v=14"></script>
+    <script src="../SiteScripts/lightbox.js?v=14"></script>
 </body>
 </html>

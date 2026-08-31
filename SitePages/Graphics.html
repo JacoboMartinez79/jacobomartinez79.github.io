@@ -20,38 +20,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=13" />
-    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=13" />
-    <link rel="stylesheet" href="../SiteCSS/effects.css?v=13" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=14" />
+    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=14" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=14" />
     <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <script>(function(){try{var t=localStorage.getItem("jm-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
     <title>Graphics Projects | Jacobo Martinez</title>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <canvas class="bg-constellation" aria-hidden="true"></canvas>
     <header class="header">
         <div class="header-title">
-            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
-            <a href="Homepage.html">Jacobo Martinez</a>
+            <img src="../SiteImages/logo.webp" alt="Jacobo Martinez logo" width="96" height="96" decoding="async" />
+            <a href="../index.html">Jacobo Martinez</a>
         </div>
         <nav class="header-buttons">
-            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
-            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
-            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
-            <div class="header-button"><a href="Homepage.html#Contact">Contact</a></div>
+            <div class="header-button"><a href="../index.html">Homepage</a></div>
+            <div class="header-button"><a href="../index.html#Projects" aria-current="page">Projects</a></div>
+            <div class="header-button"><a href="../index.html#AboutMe">About Me</a></div>
+            <div class="header-button"><a href="../index.html#Contact">Contact</a></div>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+                <svg class="icon-to-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                <svg class="icon-to-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+            </button>
         </nav>
     </header>
-    <main class="main">
-        <div class="title">Computer Graphics Projects</div>
+    <main class="main" id="main">
+        <a class="back-link" href="../index.html#Projects">&#8592; All projects</a>
+        <h1 class="title">Computer Graphics Projects</h1>
         <div class="project-type">C++ | Gateware | DirectX 11 | Vulkan</div>
-        <div class="contributions">List of Contributions:</div>
+        <h2 class="contributions">List of Contributions:</h2>
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <a href="../SiteImages/Graphics_CoverGIF.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/Graphics_CoverGIF.webp" alt="Sprite rendering, blitting, and animation demo" /></a>
+                <a class="media-anim" href="../SiteImages/Graphics_CoverGIF.webp" data-anim="../SiteImages/Graphics_CoverGIF.webp" target="_blank" rel="noopener" title="Play animation"><img src="../SiteImages/Graphics_CoverPoster.webp" alt="Sprite rendering, blitting, and animation demo" width="1254" height="672" decoding="async" fetchpriority="high" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 Sprite Rendering, Blitting, and Animation
-            </div>
+            </h3>
             <div class="contribution-summary">
                 I built 2D rendering from scratch in C++, drawing images to the screen one pixel at a time without a graphics library doing the work for me, then used it to put together an actual animated scene to prove the system worked in practice.
                 <ul>
@@ -65,13 +72,13 @@
             </div>
         </div>
 
-        <div class="contribution-left">
+        <div class="contribution-left is-flipped">
             <div class="contribution-media">
-                <a href="../SiteImages/CubeProjectImage.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/CubeProjectImage.webp" alt="3D cube rendering with DirectX 11" /></a>
+                <a href="../SiteImages/CubeProjectImage.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/CubeProjectImage.webp" alt="3D cube rendering with DirectX 11" width="1600" height="848" loading="lazy" decoding="async" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 DirectX 11 and Gateware: Cube Rendering with Camera Control
-            </div>
+            </h3>
             <div class="contribution-summary">
                 I moved from software 2D into hardware-accelerated 3D, rendering a textured cube you can fly around using DirectX 11 and the Gateware framework.
                 <ul>
@@ -84,11 +91,11 @@
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <a href="../SiteImages/LevelRenderer.png" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/LevelRenderer.png" alt="Level renderer drawing an instanced gothic bridge scene in DirectX 11" /></a>
+                <a href="../SiteImages/LevelRenderer.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/LevelRenderer.webp" alt="Level renderer drawing an instanced gothic bridge scene in DirectX 11" width="568" height="523" loading="lazy" decoding="async" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 Data-Oriented Level Renderer with GPU Instancing
-            </div>
+            </h3>
             <div class="contribution-summary">
                 My most recent graphics project: a renderer that takes a level built in Blender and exported to a text file, which lists every object in the scene and the matrix describing where it sits, and draws the whole thing in DirectX 11.
                 <ul>
@@ -104,7 +111,8 @@
             <a href="https://drive.google.com/file/d/1Ak34GlEhF1JYF0-fMEBHbI6-Ir0Cb_08/view" target="_blank" rel="noopener">Download from Google Drive</a>
         </div>
     </main>
-    <script src="../SiteScripts/bg-constellation.js?v=13"></script>
-    <script src="../SiteScripts/lightbox.js?v=13"></script>
+    <script src="../SiteScripts/theme.js?v=14"></script>
+    <script src="../SiteScripts/bg-constellation.js?v=14"></script>
+    <script src="../SiteScripts/lightbox.js?v=14"></script>
 </body>
 </html>
