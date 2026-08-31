@@ -20,38 +20,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
-    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=13" />
-    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=13" />
-    <link rel="stylesheet" href="../SiteCSS/effects.css?v=13" />
+    <link rel="stylesheet" href="../SiteCSS/Homepage.css?v=14" />
+    <link rel="stylesheet" href="../SiteCSS/Projects.css?v=14" />
+    <link rel="stylesheet" href="../SiteCSS/effects.css?v=14" />
     <link rel="icon" type="image/png" href="../SiteImages/favicon.png" />
+    <script>(function(){try{var t=localStorage.getItem("jm-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
     <title>StockResearcher | Jacobo Martinez</title>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <canvas class="bg-constellation" aria-hidden="true"></canvas>
     <header class="header">
         <div class="header-title">
-            <img src="../SiteImages/favicon.png" alt="Jacobo Martinez logo" />
-            <a href="Homepage.html">Jacobo Martinez</a>
+            <img src="../SiteImages/logo.webp" alt="Jacobo Martinez logo" width="96" height="96" decoding="async" />
+            <a href="../index.html">Jacobo Martinez</a>
         </div>
         <nav class="header-buttons">
-            <div class="header-button"><a href="Homepage.html">Homepage</a></div>
-            <div class="header-button"><a href="Homepage.html#Projects">Projects</a></div>
-            <div class="header-button"><a href="Homepage.html#AboutMe">About Me</a></div>
-            <div class="header-button"><a href="Homepage.html#Contact">Contact</a></div>
+            <div class="header-button"><a href="../index.html">Homepage</a></div>
+            <div class="header-button"><a href="../index.html#Projects" aria-current="page">Projects</a></div>
+            <div class="header-button"><a href="../index.html#AboutMe">About Me</a></div>
+            <div class="header-button"><a href="../index.html#Contact">Contact</a></div>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+                <svg class="icon-to-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                <svg class="icon-to-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+            </button>
         </nav>
     </header>
-    <main class="main">
-        <div class="title">StockResearcher</div>
+    <main class="main" id="main">
+        <a class="back-link" href="../index.html#Projects">&#8592; All projects</a>
+        <h1 class="title">StockResearcher</h1>
         <div class="project-type">Python · FastAPI · PyTorch | React · TypeScript | MongoDB</div>
-        <div class="contributions">List of Contributions:</div>
+        <h2 class="contributions">List of Contributions:</h2>
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <a href="../SiteImages/StockResearcher_Dashboard.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Dashboard.webp" alt="StockResearcher picks dashboard ranking stocks by model confidence" /></a>
+                <a href="../SiteImages/StockResearcher_Dashboard.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Dashboard.webp" alt="StockResearcher picks dashboard ranking stocks by model confidence" width="1800" height="1125" decoding="async" fetchpriority="high" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 The Model and the Pick Engine
-            </div>
+            </h3>
             <div class="contribution-summary">
                 StockResearcher is a stock analysis platform I built end to end. At its center is a neural network that ranks NYSE and NASDAQ stocks by how likely each one is to outperform SPY or QQQ over a set horizon, wrapped in a React front end sitting on a FastAPI backend.
                 <ul>
@@ -62,13 +69,13 @@
             </div>
         </div>
 
-        <div class="contribution-left">
+        <div class="contribution-left is-flipped">
             <div class="contribution-media">
-                <a href="../SiteImages/StockResearcher_Performance.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Performance.webp" alt="Model performance page reporting a 48.7 percent win rate, below baseline" /></a>
+                <a href="../SiteImages/StockResearcher_Performance.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Performance.webp" alt="Model performance page reporting a 48.7 percent win rate, below baseline" width="1800" height="1125" loading="lazy" decoding="async" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 Measuring the Model Honestly
-            </div>
+            </h3>
             <div class="contribution-summary">
                 The piece of this project I am most glad I built is the page whose entire job is to tell you how much to trust the picks, including when the honest answer is "not much."
                 <ul>
@@ -82,11 +89,11 @@
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <a href="../SiteImages/StockResearcher_TickerDetail.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_TickerDetail.webp" alt="Per-ticker research view with price history, moving averages, and model signal" /></a>
+                <a href="../SiteImages/StockResearcher_TickerDetail.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_TickerDetail.webp" alt="Per-ticker research view with price history, moving averages, and model signal" width="1800" height="1125" loading="lazy" decoding="async" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 Per-Ticker Research View
-            </div>
+            </h3>
             <div class="contribution-summary">
                 Every ticker gets its own page, so a name from the picks list can be inspected instead of taken on faith.
                 <ul>
@@ -97,13 +104,13 @@
             </div>
         </div>
 
-        <div class="contribution-left">
+        <div class="contribution-left is-flipped">
             <div class="contribution-media">
-                <a href="../SiteImages/StockResearcher_Macro.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Macro.webp" alt="Macro dashboard classifying the current market regime" /></a>
+                <a href="../SiteImages/StockResearcher_Macro.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Macro.webp" alt="Macro dashboard classifying the current market regime" width="1800" height="1125" loading="lazy" decoding="async" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 Macro Regime Dashboard
-            </div>
+            </h3>
             <div class="contribution-summary">
                 A stock pick means something different in a calm market than in a deteriorating one, so I built a second, separate model whose only job is to describe the environment the picks are being made in.
                 <ul>
@@ -116,11 +123,11 @@
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <a href="../SiteImages/StockResearcher_Options.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Options.webp" alt="Options chain with implied volatility and probability of expiring in the money" /></a>
+                <a href="../SiteImages/StockResearcher_Options.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Options.webp" alt="Options chain with implied volatility and probability of expiring in the money" width="1800" height="1125" loading="lazy" decoding="async" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 Options Chain and Probabilities
-            </div>
+            </h3>
             <div class="contribution-summary">
                 A full options viewer for the major indices and large caps, built because the chain data was already flowing in to feed the model's put/call features.
                 <ul>
@@ -131,14 +138,14 @@
             </div>
         </div>
 
-        <div class="contribution-left">
+        <div class="contribution-left is-flipped">
             <div class="contribution-media">
-                <a href="../SiteImages/StockResearcher_UnusualVolume.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_UnusualVolume.webp" alt="Volume spike screener listing small caps trading at multiples of average volume" /></a>
-                <a href="../SiteImages/StockResearcher_SmallCaps.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_SmallCaps.webp" alt="Value and momentum screener for lower priced stocks" /></a>
+                <a href="../SiteImages/StockResearcher_UnusualVolume.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_UnusualVolume.webp" alt="Volume spike screener listing small caps trading at multiples of average volume" width="1800" height="1125" loading="lazy" decoding="async" /></a>
+                <a href="../SiteImages/StockResearcher_SmallCaps.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_SmallCaps.webp" alt="Value and momentum screener for lower priced stocks" width="1800" height="1125" loading="lazy" decoding="async" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 Screeners
-            </div>
+            </h3>
             <div class="contribution-summary">
                 A set of screeners that cut the same underlying data by different questions, all served from the predictions and market data already sitting in MongoDB.
                 <ul>
@@ -151,11 +158,11 @@
 
         <div class="contribution-left">
             <div class="contribution-media">
-                <a href="../SiteImages/StockResearcher_Sectors.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Sectors.webp" alt="Sector breakdown of buy picks grouped by sector" /></a>
+                <a href="../SiteImages/StockResearcher_Sectors.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_Sectors.webp" alt="Sector breakdown of buy picks grouped by sector" width="1800" height="1125" loading="lazy" decoding="async" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 Sector Breakdown and Concentration Warnings
-            </div>
+            </h3>
             <div class="contribution-summary">
                 A model that likes one sector will hand you a list that looks like seven ideas and behaves like one. This view exists to make that visible.
                 <ul>
@@ -166,13 +173,13 @@
             </div>
         </div>
 
-        <div class="contribution-left">
+        <div class="contribution-left is-flipped">
             <div class="contribution-media">
-                <a href="../SiteImages/StockResearcher_EtfFinder.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_EtfFinder.webp" alt="ETF finder comparing funds by assets, return, and expense ratio" /></a>
+                <a href="../SiteImages/StockResearcher_EtfFinder.webp" target="_blank" rel="noopener" title="Open full size"><img src="../SiteImages/StockResearcher_EtfFinder.webp" alt="ETF finder comparing funds by assets, return, and expense ratio" width="1800" height="1125" loading="lazy" decoding="async" /></a>
             </div>
-            <div class="contribution-title">
+            <h3 class="contribution-title">
                 ETF Finder
-            </div>
+            </h3>
             <div class="contribution-summary">
                 A browser for funds rather than individual names, for the case where the answer to "what should I look at" is not a single stock.
                 <ul>
@@ -182,10 +189,10 @@
             </div>
         </div>
 
-        <div class="contribution-left">
-            <div class="contribution-title">
+        <div class="contribution-left no-media">
+            <h3 class="contribution-title">
                 Backend, Authentication, and Hardening
-            </div>
+            </h3>
             <div class="contribution-summary">
                 Putting a project like this on the public internet turned out to be its own body of work, separate from the modeling.
                 <ul>
@@ -196,7 +203,8 @@
             </div>
         </div>
     </main>
-    <script src="../SiteScripts/bg-constellation.js?v=13"></script>
-    <script src="../SiteScripts/lightbox.js?v=13"></script>
+    <script src="../SiteScripts/theme.js?v=14"></script>
+    <script src="../SiteScripts/bg-constellation.js?v=14"></script>
+    <script src="../SiteScripts/lightbox.js?v=14"></script>
 </body>
 </html>

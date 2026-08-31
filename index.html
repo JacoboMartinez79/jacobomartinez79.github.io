@@ -1,14 +1,223 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="icon" type="image/svg" href="../SiteImages/favicon.png" />
-    <title>Jacobo M.</title>
     <meta charset="utf-8">
-    <meta name="description" content="Portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jacobo Martinez, Game Developer and Software Engineer portfolio">
     <meta name="author" content="Jacobo Martinez">
-    <meta http-equiv="refresh" content="0; url=SitePages/Homepage.html">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jacobo Martinez" />
+    <meta property="og:title" content="Jacobo Martinez — Game Developer & Software Engineer" />
+    <meta property="og:description" content="Portfolio of game and software projects: VR simulators, survival games, graphics engines, AI systems, and more." />
+    <meta property="og:url" content="https://jacobomartinez79.github.io/" />
+    <meta property="og:image" content="https://jacobomartinez79.github.io/SiteImages/BigGreasy_CoverImage.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jacobo Martinez — Game Developer & Software Engineer" />
+    <meta name="twitter:description" content="Portfolio of game and software projects: VR simulators, survival games, graphics engines, AI systems, and more." />
+    <meta name="twitter:image" content="https://jacobomartinez79.github.io/SiteImages/BigGreasy_CoverImage.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="SiteCSS/Homepage.css?v=14" />
+    <link rel="stylesheet" href="SiteCSS/effects.css?v=14" />
+    <link rel="icon" type="image/png" href="SiteImages/favicon.png" />
+    <script>(function(){try{var t=localStorage.getItem("jm-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+    <title>Jacobo Martinez</title>
 </head>
 <body>
-    Loading Site...
+    <a class="skip-link" href="#main">Skip to content</a>
+    <canvas class="bg-constellation" aria-hidden="true"></canvas>
+    <header class="header">
+        <div class="header-title">
+            <img src="SiteImages/logo.webp" alt="Jacobo Martinez logo" width="96" height="96" decoding="async" />
+            <a href="index.html">Jacobo Martinez</a>
+        </div>
+        <nav class="header-buttons">
+            <div class="header-button"><a href="index.html" aria-current="page">Homepage</a></div>
+            <div class="header-button"><a href="#Projects">Projects</a></div>
+            <div class="header-button"><a href="#AboutMe">About Me</a></div>
+            <div class="header-button"><a href="#Contact">Contact</a></div>
+            <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+                <svg class="icon-to-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                <svg class="icon-to-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+            </button>
+        </nav>
+    </header>
+    <main class="main" id="main">
+        <section class="hero">
+            <canvas class="hero-canvas" aria-hidden="true"></canvas>
+            <h1 class="hero-headline">Game Developer &amp; Software Engineer</h1>
+            <div class="hero-subline">
+                I build interactive experiences that span VR simulators, survival games, graphics engines, and AI systems.
+                My main tools are C++, C#, Unity, and DirectX 11.
+            </div>
+            <div class="hero-links">
+                <a class="cta-primary" href="#Projects">View Projects</a>
+                <a href="#AboutMe">About Me</a>
+            </div>
+        </section>
+
+        <section id="Projects">
+            <h2 class="section-label">Projects</h2>
+            <div class="projects">
+                <!--StockResearcher-->
+                <div class="project-section">
+                    <h3 class="project-title">
+                        <a href="SitePages/StockResearcher.html">StockResearcher</a>
+                    </h3>
+                    <div class="project-media">
+                        <img src="SiteImages/StockResearcher_Dashboard.webp" alt="StockResearcher machine learning stock picks dashboard" width="1800" height="1125" decoding="async" fetchpriority="high" />
+                    </div>
+                    <div class="project-summary">
+                        A machine learning stock analysis platform built end to end. A PyTorch ensemble ranks NYSE and NASDAQ stocks on roughly 120 features, alongside a macro regime classifier, an options chain with probability modeling, screeners, and a performance page that reports the model&rsquo;s accuracy honestly.
+                    </div>
+                </div>
+                <!--Big Greasy-->
+                <div class="project-section">
+                    <h3 class="project-title">
+                        <a href="SitePages/BigGreasy.html">Big Greasy</a>
+                    </h3>
+                    <div class="project-media">
+                        <img src="SiteImages/BigGreasy_CoverImage.webp" alt="Big Greasy game screenshot" width="1085" height="608" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="project-summary">
+                        A fast food sim where you work the graveyard shift at Big Grease and try to make rent for the week. Manage your time, keep customers happy, and survive the supernatural events that creep into your monotonous job.
+                        <br><br>
+                        <a href="https://blacksandsstudios.itch.io/big-grease">Play on Itch.io</a>
+                    </div>
+                </div>
+                <!--Wizards Day-->
+                <div class="project-section">
+                    <h3 class="project-title">
+                        <a href="SitePages/WizardsDay.html">Wizards Day</a>
+                    </h3>
+                    <div class="project-media">
+                        <img src="SiteImages/WizardsDay_CoverImage.webp" alt="Wizards Day game screenshot" width="1800" height="1012" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="project-summary">
+                        A top-down survival game where you fight through five rounds of enemies. Collect experience to level up your fireball and hit harder each round.
+                    </div>
+                </div>
+                <!--AI-->
+                <div class="project-section">
+                    <h3 class="project-title">
+                        <a href="SitePages/AI.html">Artificial Intelligence</a>
+                    </h3>
+                    <div class="project-media">
+                        <img src="SiteImages/AI_CoverImage.webp" alt="AI path planning visualization" width="1054" height="780" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="project-summary">
+                        A path planning system covering everything from BFS to A* for optimal pathfinding, plus flocking algorithms for believable group movement. I built the search graph from tile data and handled hexagonal adjacency across a 2D grid.
+                    </div>
+                </div>
+                <!--Engine Development-->
+                <div class="project-section">
+                    <h3 class="project-title">
+                        <a href="SitePages/EngineDev.html">Engine Development</a>
+                    </h3>
+                    <div class="project-media">
+                        <img src="SiteImages/EngineDev_CoverImage.webp" alt="Engine development particle system" width="1266" height="702" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="project-summary">
+                        A particle system built around sorted and unsorted pools. Active particles stay sorted for efficient rendering, while inactive ones sit in a pool for fast allocation. The result stays smooth even with large particle counts.
+                    </div>
+                </div>
+                <!--Graphics Projects-->
+                <div class="project-section">
+                    <h3 class="project-title">
+                        <a href="SitePages/Graphics.html">Graphics Projects</a>
+                    </h3>
+                    <div class="project-media">
+                        <img src="SiteImages/Graphics_CoverPoster.webp" alt="Graphics project sprite renderer" width="1254" height="672" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="project-summary">
+                        Graphics work built from the ground up, starting with my own mini linear algebra library for matrix math and line-drawing algorithms, then moving into the DirectX 11 API with a bit of Vulkan along the way.
+                    </div>
+                </div>
+                <!--Computer Networks-->
+                <div class="project-section">
+                    <h3 class="project-title">
+                        <a href="SitePages/ComputerNetworks.html">Computer Networks</a>
+                    </h3>
+                    <div class="project-media">
+                        <img src="SiteImages/ComputerNetworks_CoverImage.webp" alt="Computer networks server-client diagram" width="1280" height="691" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="project-summary">
+                        A server-client chat app built on the WinSock API with multiplexing. It handles real-time messaging between clients and the server, with support for up to five connections at once.
+                    </div>
+                </div>
+                <!--wxWidgets Projects-->
+                <div class="project-section">
+                    <h3 class="project-title">
+                        <a href="SitePages/wxProjects.html">wxWidgets Projects</a>
+                    </h3>
+                    <div class="project-media">
+                        <img src="SiteImages/wxWidgets_CoverPoster.webp" alt="Conway's Game of Life running in Windows Forms" width="1345" height="649" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="project-summary">
+                        Desktop GUI apps built with Windows Forms and wxWidgets. Includes a C# version of Conway's Game of Life and a C++ calculator in wxWidgets that uses the command pattern for undo and redo.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="AboutMe">
+            <div class="about-me">
+                <h2>About Me</h2>
+                <div class="about-me-content">
+                    <p>
+                        Hi, I'm Jacobo Martinez, a game developer and software engineer focused on C++, C#, Unity, and graphics programming. I love building interactive experiences, whether that's a VR capstone project or a low-level graphics engine.
+                    </p>
+                    <p>
+                        I enjoy working across the full stack of game development: engine architecture, AI systems, networking, UI design, and project management. I thrive in roles where I can contribute technically while also thinking about the player experience.
+                    </p>
+                    <div class="about-me-links">
+                        <a href="https://github.com/JacoboMartinez79" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://www.linkedin.com/in/jacobodev" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://blacksandsstudios.itch.io/big-grease" target="_blank" rel="noopener">Itch.io</a>
+                        <a href="#" class="js-email" data-user="jacmar1u" data-domain="gmail.com">Email</a>
+                    </div>
+                </div>
+            </div>
+            <div class="resume-download">
+                <a href="SiteImages/MartinezJacobo_Resume.svg" target="_blank">View Resume</a>
+            </div>
+            <div class="resume">
+                <img src="SiteImages/MartinezJacobo_Resume.svg" alt="Jacobo Martinez resume" width="816" height="1056" loading="lazy" decoding="async" />
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="Contact">
+        <svg class="footer-silhouette" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+            <rect class="sky-fill" x="0" y="0" width="1440" height="160" />
+            <!-- back ridge: distant rolling mountains -->
+            <path class="ridge-back" d="M0,160 L0,96 L120,64 L260,104 L400,52 L560,108 L700,60 L860,112 L1020,56 L1180,104 L1320,68 L1440,100 L1440,160 Z" />
+            <!-- front ridge: nearer skyline with a few building-like peaks -->
+            <path class="ridge-front" d="M0,160 L0,128 L90,128 L90,96 L150,96 L150,128 L240,128 L300,84 L380,128 L470,128 L470,104 L520,104 L520,128 L640,128 L700,72 L780,128 L900,128 L900,100 L950,100 L950,128 L1080,128 L1140,88 L1220,128 L1320,128 L1320,108 L1370,108 L1370,128 L1440,128 L1440,160 Z" />
+        </svg>
+        <div class="footer-content">
+            <div class="footer-kicker">Get in touch</div>
+            <h2 class="footer-title">Let's build something together</h2>
+            <p class="footer-text">
+                Open to game development and software engineering roles, collaborations, and interesting problems. The fastest way to reach me is email.
+            </p>
+            <div class="footer-links">
+                <a class="cta-primary js-email" href="#" data-user="jacmar1u" data-domain="gmail.com">Contact Me</a>
+                <a href="https://github.com/JacoboMartinez79" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/jacobodev" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://blacksandsstudios.itch.io/big-grease" target="_blank" rel="noopener">Itch.io</a>
+            </div>
+            <div class="footer-copyright">© 2026 Jacobo Martinez</div>
+        </div>
+    </footer>
+
+    <script src="SiteScripts/theme.js?v=14"></script>
+    <script src="SiteScripts/email.js?v=14"></script>
+    <script src="SiteScripts/bg-constellation.js?v=14"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="SiteScripts/hero-boids.js?v=14"></script>
 </body>
 </html>

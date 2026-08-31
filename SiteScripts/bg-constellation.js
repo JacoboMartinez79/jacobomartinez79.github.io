@@ -13,8 +13,21 @@
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    const NODE_COLOR = "70, 113, 230";  // accent blue
-    const LINE_COLOR = "90, 100, 120";  // slate
+    // colors come from the CSS theme tokens so this follows light/dark
+    let NODE_COLOR = "70, 113, 230";
+    let LINE_COLOR = "90, 100, 120";
+
+    function readColors() {
+        const css = getComputedStyle(document.documentElement);
+        NODE_COLOR = css.getPropertyValue("--canvas-node").trim() || NODE_COLOR;
+        LINE_COLOR = css.getPropertyValue("--canvas-line").trim() || LINE_COLOR;
+    }
+    readColors();
+
+    document.addEventListener("themechange", () => {
+        readColors();
+        if (reducedMotion) draw(); // static frame needs an explicit repaint
+    });
 
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 

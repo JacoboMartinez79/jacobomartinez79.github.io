@@ -47,9 +47,9 @@
     pointer-events: none;
     background: linear-gradient(
         90deg,
-        rgba(236, 233, 228, 0.88) 0%,
-        rgba(236, 233, 228, 0.55) 40%,
-        rgba(236, 233, 228, 0) 80%
+        rgba(var(--hero-fade), 0.88) 0%,
+        rgba(var(--hero-fade), 0.55) 40%,
+        rgba(var(--hero-fade), 0) 80%
     );
 }
 

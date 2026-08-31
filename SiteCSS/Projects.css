@@ -8,8 +8,21 @@
     margin: 3vh auto 6vh auto;
 }
 
+.back-link {
+    display: inline-block;
+    margin-top: 3vh;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: color 0.18s ease;
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
+
 .title {
-    padding-top: 5vh;
+    padding-top: 1.5vh;
     color: var(--text);
     font-size: clamp(2rem, 5vw, 3.2rem);
     font-weight: 800;
@@ -29,6 +42,7 @@
 
 .contributions {
     padding: 1.2rem 0;
+    line-height: 1.65;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -59,6 +73,10 @@
     text-align: center;
 }
 
+    .contribution-media a + a {
+        margin-top: 1rem;
+    }
+
     .contribution-media a {
         display: inline-block;
         position: relative;
@@ -79,10 +97,22 @@
 
     .contribution-media a:hover img {
         transform: translateY(-2px);
-        box-shadow: 0 2px 6px rgba(60, 55, 48, 0.08), 0 16px 40px rgba(60, 55, 48, 0.16);
+        box-shadow: var(--shadow-lift);
     }
 
     /* tap/click to view full size hint */
+    .contribution-media a.media-anim::after {
+        content: "▶ Play animation";
+    }
+
+    .contribution-media a.media-anim.is-loading::after {
+        content: "Loading…";
+    }
+
+    .contribution-media a.media-anim.is-playing::after {
+        content: "⤢ View full size";
+    }
+
     .contribution-media a::after {
         content: "⤢ View full size";
         position: absolute;
@@ -212,6 +242,41 @@
     background: rgba(255, 255, 255, 0.25);
 }
 
+
+/* wide screens: image beside the text, alternating sides */
+@media (min-width: 1024px) {
+    .contribution-left {
+        grid-template-areas:
+            'ctitle   cmedia'
+            'csummary cmedia';
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        grid-template-rows: auto 1fr;
+        column-gap: 3rem;
+        align-items: start;
+    }
+
+    .contribution-left.is-flipped {
+        grid-template-areas:
+            'cmedia ctitle'
+            'cmedia csummary';
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    }
+
+    /* sections without a screenshot stay full width */
+    .contribution-left.no-media {
+        grid-template-areas: 'ctitle' 'csummary';
+        grid-template-columns: 100%;
+    }
+
+    .contribution-media {
+        position: sticky;
+        top: 2rem;
+    }
+
+    .contribution-summary {
+        max-width: none;
+    }
+}
 
 @media (max-width: 1023px) {
 
